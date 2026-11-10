@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d3iyqtw7yv1hw"]
+
+[ext_resource type="Script" uid="uid://c2vjqxwnw6bol" path="res://Entities/EntityScripts/main_camera.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="2_0xm2m"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnsl6"]
+
+[node name="Main" type="Node3D" unique_id=1088817240]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
+shape = SubResource("WorldBoundaryShape3D_wnsl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1110501818]
+mesh = SubResource("PlaneMesh_wnsl6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=251754734 node_paths=PackedStringArray("main_camera", "camera_location_marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2962601, 4.17482)
+fov = 90.0
+script = ExtResource("1_0xm2m")
+main_camera = NodePath(".")
+camera_location_marker = NodePath("../Player2/DetachedPlayerCameraLocation")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
+transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153, 0.83257854, 0.45348525, -0.8620442, 0.22634262, -6.400569, 5.9331646, 4.17482)
+
+[node name="Player2" parent="." unique_id=1369565701 instance=ExtResource("2_0xm2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8837707, 0)
+
+[editable path="Player2"]
