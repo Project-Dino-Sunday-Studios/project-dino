@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dds8r7b30ir8g"]
+
+[ext_resource type="Script" uid="uid://v1egxakko8so" path="res://Utilities/pause_menu.gd" id="1_52f8u"]
+[ext_resource type="Theme" uid="uid://cmkotb7vanxye" path="res://Themes/pause_buttons.tres" id="2_qpukh"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=582052061 node_paths=PackedStringArray("resume_button", "quit_button")]
+process_mode = 3
+script = ExtResource("1_52f8u")
+resume_button = NodePath("CenterContainer/VBoxContainer/Resume")
+quit_button = NodePath("CenterContainer/VBoxContainer/Quit")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1857230308]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1737495663]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer" unique_id=2129655273]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=375246011]
+custom_minimum_size = Vector2(250, 70)
+layout_mode = 2
+theme = ExtResource("2_qpukh")
+text = "Quit"

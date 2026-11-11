@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2vjqxwnw6bol" path="res://Entities/EntityScripts/main_camera.gd" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="3_h2yge"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
 
@@ -29,5 +30,7 @@ transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153,
 
 [node name="Player2" parent="." unique_id=1369565701 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8837707, 0)
+
+[node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("3_h2yge")]
 
 [editable path="Player2"]
