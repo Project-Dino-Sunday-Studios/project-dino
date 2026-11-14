@@ -70,6 +70,31 @@ func get_cell(cell_position: Vector2i) -> CellState:
 	return grid[cell_position.y][cell_position.x]
 
 
+#Check that the fish’s cells are aviable 
+func can_place_cells(cells: Array[Vector2i]) -> bool:
+	#If array is empty
+	if cells.is_empty():
+		return false
+	
+	for cell in cells: #Itering the fish's cell
+		if get_cell(cell) != CellState.EMPTY:
+			return false
+	
+	return true
+
+
+func place_cells(cells: Array[Vector2i]) -> bool:
+	#Check cells are aviable
+	if not can_place_cells(cells):
+		return false
+	
+	for cell in cells:
+		set_cell(cell, CellState.OCCUPIED)
+	
+	return true
+		
+
+
 #Debugging
 func inventory_debug() -> void:
 	for row in grid:

@@ -56,7 +56,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wdn4f")
-cell_size = 120
+cell_size = 80
+test_cells = Array[Vector2i]([Vector2i(4, 4), Vector2i(5, 4), Vector2i(3, 4)])
 
 [node name="MarginRight" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1330134981]
 layout_mode = 2

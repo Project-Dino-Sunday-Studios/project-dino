@@ -10,6 +10,9 @@ var gridData: GridData = GridData.new()
 var grid_initialized: bool = false
 
 
+@export_category("ONLY FOR DEBUG")
+@export var test_cells : Array[Vector2i] = []
+
 func _ready() -> void:
 	pass
 
@@ -72,6 +75,17 @@ func drawing_grid() -> void:
 
 #Draw grid
 func _draw() -> void:
+	var grid := grid_cell_quantity_calc() #Grid dimension (cells)
+
+	for rows in grid.y:
+		for columns in grid.x:
+			var cell := Vector2i(columns, rows)
+			
+			match gridData.get_cell(cell):
+				gridData.CellState.OCCUPIED:
+					var rect2 : Rect2 = Rect2(get_cell_position(cell) ,Vector2(cell_size, cell_size)) #Square red
+					draw_rect(rect2, Color.RED)
+	
 	drawing_grid()
 
 
@@ -89,8 +103,17 @@ func _on_resized() -> void:
 		
 		grid_initialized = true
 		
-		gridData.set_cell(Vector2i(0, 2), gridData.CellState.EMPTY)
+		gridData.place_cells(test_cells)
 		
 		gridData.inventory_debug()
 	
 	queue_redraw()
+
+
+#Get cell position in grid
+func get_cell_position(cell: Vector2i) -> Vector2:
+	#x is columns and y rows
+	return Vector2(
+			cell.x * cell_size + grid_origin_calc().x,
+			cell.y * cell_size + grid_origin_calc().y,
+	)
