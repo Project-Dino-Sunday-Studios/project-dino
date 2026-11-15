@@ -35,12 +35,15 @@ mesh = SubResource("CylinderMesh_hqtel")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5585904, -0.4541734)
 mesh = SubResource("SphereMesh_sweqy")
 
-[node name="ModelCameraLocation" type="Marker3D" parent="Model" unique_id=1428633097]
+[node name="AttachedCameraPivot" type="Marker3D" parent="Model" unique_id=2072562671]
+
+[node name="AttachedCameraLocation" type="Marker3D" parent="Model/AttachedCameraPivot" unique_id=1428633097]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2, -7)
 
-[node name="ModelCameraPivot" type="Marker3D" parent="Model" unique_id=2072562671]
+[node name="DetachedCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
 
-[node name="DetachedPlayerCameraLocation" type="Marker3D" parent="." unique_id=1424784790]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2, -7)
+[node name="SpringArm3D" type="SpringArm3D" parent="DetachedCameraPivot" unique_id=546940169]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 0)
+spring_length = 7.0
 
-[node name="DetachedPlayerCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
+[node name="DetachedCameraLocation" type="Marker3D" parent="DetachedCameraPivot/SpringArm3D" unique_id=1424784790]

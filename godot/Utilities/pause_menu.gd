@@ -19,6 +19,11 @@ func _physics_process(_delta: float) -> void:
 func _toggle_pause() -> void:
 	get_tree().paused = !get_tree().paused
 	visible = !visible
+	
+	if(visible):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _on_resume_button_pressed() -> void:

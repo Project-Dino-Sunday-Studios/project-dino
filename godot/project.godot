@@ -50,6 +50,11 @@ pause={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="environment"
+3d_physics/layer_5="player"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
