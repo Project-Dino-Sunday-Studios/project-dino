@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bde8tcm14wnhm"]
+
+[ext_resource type="Script" uid="uid://cbnc1txbuo86h" path="res://Scripts/fish.gd" id="1_twvwo"]
+
+[sub_resource type="Gradient" id="Gradient_twvwo"]
+offsets = PackedFloat32Array(0.92469877)
+colors = PackedColorArray(0.29101563, 0.10572052, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kvcbw"]
+gradient = SubResource("Gradient_twvwo")
+width = 80
+height = 80
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvcbw"]
+size = Vector2(80, 80)
+
+[node name="FishTest" type="RigidBody2D" unique_id=1764849412]
+script = ExtResource("1_twvwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1966134983]
+texture = SubResource("GradientTexture2D_kvcbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=70903357]
+shape = SubResource("RectangleShape2D_kvcbw")
