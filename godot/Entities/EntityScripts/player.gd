@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var model: Node3D
 
 var ROTATION_SPEED: float = 1.7
-var MOVEMENT_SPEED: float = 2.6
+var MOVEMENT_SPEED: float = 4.6
 
 
 func _physics_process(delta: float) -> void:

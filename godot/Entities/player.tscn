@@ -4,7 +4,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wnsl6"]
+radius = 0.2265625
+height = 1.6245117
+
 [sub_resource type="BoxMesh" id="BoxMesh_i3pqv"]
+size = Vector3(1, 1, 2)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_hqtel"]
 top_radius = 0.19189453
@@ -15,6 +20,10 @@ height = 1.9106445
 radius = 0.295
 height = 0.525
 
+[sub_resource type="SphereMesh" id="SphereMesh_wnsl6"]
+radius = 0.682
+height = 0.053
+
 [node name="Player" type="CharacterBody3D" unique_id=1369565701 node_paths=PackedStringArray("model")]
 script = ExtResource("1_tcnsb")
 model = NodePath("Model")
@@ -24,7 +33,12 @@ shape = SubResource("BoxShape3D_onrkg")
 
 [node name="Model" type="Node3D" parent="." unique_id=1177248948]
 
+[node name="person" type="MeshInstance3D" parent="Model" unique_id=472380683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86684847, 0.048877954)
+mesh = SubResource("CapsuleMesh_wnsl6")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model" unique_id=1928939528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 mesh = SubResource("BoxMesh_i3pqv")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Model" unique_id=1300713444]
@@ -32,13 +46,20 @@ transform = Transform3D(1, 0, 0, 0, 0.67674464, -0.7362178, 0, 0.7362178, 0.6767
 mesh = SubResource("CylinderMesh_hqtel")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Model" unique_id=495195527]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5585904, -0.4541734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34022427, -1.6994333)
 mesh = SubResource("SphereMesh_sweqy")
 
 [node name="AttachedCameraPivot" type="Marker3D" parent="Model" unique_id=2072562671]
 
 [node name="AttachedCameraLocation" type="Marker3D" parent="Model/AttachedCameraPivot" unique_id=1428633097]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2, -7)
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Model" unique_id=1205780155]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.59660375, -0.8501102)
+mesh = SubResource("SphereMesh_wnsl6")
+
+[node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
+transform = Transform3D(-0.9626918, 7.450581e-09, 0.27060038, 0.062209066, 0.973216, 0.22131582, -0.26335263, 0.2298927, -0.936907, -0.841, 1.719, -1.077)
 
 [node name="DetachedCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
 
