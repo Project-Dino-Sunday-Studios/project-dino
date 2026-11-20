@@ -59,7 +59,7 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0
 mesh = SubResource("SphereMesh_wnsl6")
 
 [node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
-transform = Transform3D(-0.9626918, 7.450581e-09, 0.27060038, 0.062209066, 0.973216, 0.22131582, -0.26335263, 0.2298927, -0.936907, -0.841, 1.719, -1.077)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.841, 1.719, -1.077)
 
 [node name="DetachedCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
 
