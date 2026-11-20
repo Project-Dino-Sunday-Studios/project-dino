@@ -11,6 +11,7 @@ enum CameraMode {
 @export var detached_camera_pivot: Marker3D
 @export var detached_camera_location: Marker3D
 @export var fishing_camera_location: Marker3D
+@export var crosshair: CanvasLayer
 
 var camera_movement_speed: float = 30.0
 var camera_sensitivity_x: float = 0.001
@@ -44,8 +45,12 @@ func _physics_process(delta: float) -> void:
 	#TODO: change these magic numbers
 	if in_fishing_pov:
 		fov = 75
+		if crosshair:
+			crosshair.visible = true
 	else:
 		fov = 90
+		if crosshair:
+			crosshair.visible = false
 	_smooth_move_to_location_marker(delta)
 
 
