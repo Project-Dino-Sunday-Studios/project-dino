@@ -6,6 +6,10 @@ var ROTATION_SPEED: float = 1.7
 var MOVEMENT_SPEED: float = 4.6
 
 
+func _ready() -> void:
+	Global.current_player_state = Global.PlayerState.TRAVERSE
+
+
 func _physics_process(delta: float) -> void:
 	## Rotation inputs
 	if Input.is_action_pressed("move_left"):
@@ -17,3 +21,12 @@ func _physics_process(delta: float) -> void:
 		global_position += model.global_basis.z * MOVEMENT_SPEED * delta
 	if Input.is_action_pressed("move_down"):
 		global_position -= model.global_basis.z * MOVEMENT_SPEED * delta
+	
+	# Aiming state
+	if Input.is_action_just_pressed("aim"):
+		# Switch player state
+		match Global.current_player_state:
+			Global.PlayerState.TRAVERSE:
+				Global.current_player_state = Global.PlayerState.AIM
+			Global.PlayerState.AIM:
+				Global.current_player_state = Global.PlayerState.TRAVERSE

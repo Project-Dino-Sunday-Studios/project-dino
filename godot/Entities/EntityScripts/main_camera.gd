@@ -11,6 +11,7 @@ enum CameraMode {
 @export var detached_camera_pivot: Marker3D
 @export var detached_camera_location: Marker3D
 @export var fishing_camera_location: Marker3D
+@export var fishing_ray: RayCast3D
 @export var crosshair: CanvasLayer
 
 var camera_movement_speed: float = 30.0
@@ -29,51 +30,54 @@ var detached_rotations: Array[float] = [0.0, 0.0]
 var minimum_vertical_angle: float = deg_to_rad(-3)
 var maximum_vertical_angle: float = deg_to_rad(80)
 
+## fishing/aim variables
 var in_fishing_pov: bool = false
 var default_fishing_basis: Basis = Basis(Vector3(-1.0, 0.0, 0.0), Vector3(0.0, 1.0, 0.0), Vector3(0.0, 0.0, -1.0) )
 var fishing_rotations: Array[float] = [0.0, 0.0]
 var minimum_fishing_vertical_angle: float = deg_to_rad(-3)
 var maximum_fishing_vertical_angle: float = deg_to_rad(50)
 var minimum_fishing_horizontal_angle: float = deg_to_rad(-90)
-var maximum_fishing_horizontal_angle: float = deg_to_rad(-15)
+var maximum_fishing_horizontal_angle: float = deg_to_rad(-5)
+
+var fishing_distance: float = 12
+
+
+func _ready() -> void:
+	fishing_ray.target_position = Vector3(0, 0, -fishing_distance)
 
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("aim"):
-		in_fishing_pov = !in_fishing_pov
-	
 	#TODO: change these magic numbers
-	if in_fishing_pov:
+	if Global.current_player_state == Global.PlayerState.AIM:
 		fov = 75
 		if crosshair:
 			crosshair.visible = true
-	else:
+	else: # Global.current_player_state == Global.PlayerState.TRAVERSE
 		fov = 90
 		if crosshair:
 			crosshair.visible = false
-	_smooth_move_to_location_marker(delta)
+	
+	_move_to_location_marker(delta)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		if not in_fishing_pov:
+		if Global.current_player_state == Global.PlayerState.TRAVERSE:
 			_handle_third_person_camera(event)
 		else:
 			fishing_rotations[0] = clamp(fishing_rotations[0], minimum_fishing_horizontal_angle, maximum_fishing_horizontal_angle)
 			fishing_rotations[1] = clamp(fishing_rotations[1], minimum_fishing_vertical_angle, maximum_fishing_vertical_angle)
 			
 			_handle_node_rotation_using_mouse(event, null, fishing_camera_location, fishing_rotations, default_fishing_basis)
-			pass
 
-
-func _smooth_move_to_location_marker(delta: float):
-	if not in_fishing_pov:
+func _move_to_location_marker(delta: float):
+	if Global.current_player_state == Global.PlayerState.TRAVERSE:
 		if camera_mode == CameraMode.DETACHED:
 			main_camera.global_transform = main_camera.global_transform.interpolate_with(detached_camera_location.global_transform, delta * camera_movement_speed)
 		if camera_mode == CameraMode.ATTACHED:
 			main_camera.global_transform = main_camera.global_transform.interpolate_with(attached_camera_location.global_transform, delta * camera_movement_speed)
 	else:
-		main_camera.global_transform = main_camera.global_transform.interpolate_with(fishing_camera_location.global_transform, delta * camera_movement_speed)
+		main_camera.global_transform = fishing_camera_location.global_transform
 
 
 func _handle_third_person_camera(event: InputEvent) -> void:
