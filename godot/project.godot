@@ -63,6 +63,7 @@ aim={
 [layer_names]
 
 3d_physics/layer_1="environment"
+3d_physics/layer_4="Interactable"
 3d_physics/layer_5="player"
 
 [physics]

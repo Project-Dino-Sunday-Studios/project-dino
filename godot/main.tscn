@@ -45,6 +45,7 @@ crosshair = NodePath("../Crosshair")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1579200859]
 target_position = Vector3(0, 0, -20)
+collide_with_areas = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
 transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153, 0.83257854, 0.45348525, -0.8620442, 0.22634262, -6.400569, 5.9331646, 4.17482)

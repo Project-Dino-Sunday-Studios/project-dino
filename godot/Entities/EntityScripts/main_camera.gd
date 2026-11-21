@@ -52,10 +52,12 @@ func _physics_process(delta: float) -> void:
 		fov = 75
 		if crosshair:
 			crosshair.visible = true
+		fishing_ray.process_mode = ProcessMode.PROCESS_MODE_INHERIT
 	else: # Global.current_player_state == Global.PlayerState.TRAVERSE
 		fov = 90
 		if crosshair:
 			crosshair.visible = false
+		fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
 	
 	_move_to_location_marker(delta)
 
