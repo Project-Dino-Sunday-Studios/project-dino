@@ -49,7 +49,6 @@ func activate_fishing(player: CharacterBody3D) -> void:
 	look_at(target_position)
 	
 	var num_boosts: int = int(global_position.distance_to(player.global_position) / boost_interval)
-	print(num_boosts, global_position.distance_to(player.global_position))
 	for i in range(1, num_boosts+1):
 		var boost: FishBoost = fish_boost.instantiate()
 		add_child(boost)
