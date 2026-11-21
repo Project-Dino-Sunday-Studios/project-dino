@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
 
@@ -41,17 +42,19 @@ detached_camera_pivot = NodePath("../Player2/DetachedCameraPivot")
 detached_camera_location = NodePath("../Player2/DetachedCameraPivot/SpringArm3D/DetachedCameraLocation")
 fishing_camera_location = NodePath("../Player2/Model/FishingCameraLocation")
 fishing_ray = NodePath("RayCast3D")
-crosshair = NodePath("../Crosshair")
+crosshair = NodePath("../Crosshair/CenterContainer")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1579200859]
 target_position = Vector3(0, 0, -20)
+collision_mask = 9
 collide_with_areas = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
 transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153, 0.83257854, 0.45348525, -0.8620442, 0.22634262, -6.400569, 5.9331646, 4.17482)
 
-[node name="Player2" parent="." unique_id=1369565701 instance=ExtResource("2_0xm2m")]
+[node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8837707, 0)
+fishing_ray = NodePath("../Camera3D/RayCast3D")
 
 [node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("3_h2yge")]
 
@@ -66,4 +69,8 @@ mesh = SubResource("BoxMesh_wnsl6")
 
 [node name="Crosshair" parent="." unique_id=768079159 instance=ExtResource("4_1bvp3")]
 
+[node name="Fish" parent="." unique_id=1762001001 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
 [editable path="Player2"]
+[editable path="Crosshair"]

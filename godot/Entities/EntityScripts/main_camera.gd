@@ -12,7 +12,7 @@ enum CameraMode {
 @export var detached_camera_location: Marker3D
 @export var fishing_camera_location: Marker3D
 @export var fishing_ray: RayCast3D
-@export var crosshair: CanvasLayer
+@export var crosshair: CenterContainer
 
 var camera_movement_speed: float = 30.0
 var camera_sensitivity_x: float = 0.001
@@ -43,6 +43,7 @@ var fishing_distance: float = 12
 
 
 func _ready() -> void:
+	Events.start_fishing.connect(_start_fishing)
 	fishing_ray.target_position = Vector3(0, 0, -fishing_distance)
 
 
@@ -58,6 +59,12 @@ func _physics_process(delta: float) -> void:
 		if crosshair:
 			crosshair.visible = false
 		fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	
+	var tween: Tween = create_tween()
+	if fishing_ray.is_colliding() and fishing_ray.get_collider() is EnvironmentFish:
+		tween.tween_property(crosshair, "rotation", deg_to_rad(20), .04)
+	else:
+		tween.tween_property(crosshair, "rotation", 0, .04)
 	
 	_move_to_location_marker(delta)
 
@@ -104,3 +111,10 @@ func _handle_node_rotation_using_mouse(event: InputEvent, camera_location: Marke
 	if camera_pivot:
 		camera_pivot.rotate_x(accumulated_rotations[1]) # Rotate about the x axis
 		camera_pivot.rotate_y(accumulated_rotations[0]) # Rotate about the y axis
+
+
+func _start_fishing() -> void:
+	#crosshair.rotation += deg_to_rad(20)
+	var tween: Tween = create_tween()
+	tween.tween_property(crosshair, "rotation", deg_to_rad(60), .04)
+	tween.tween_property(crosshair, "rotation", deg_to_rad(0), .04)

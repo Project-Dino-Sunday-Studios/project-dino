@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://snbg7q6yiuf0"]
 
-[ext_resource type="Script" uid="uid://do3qssxsmptyx" path="res://Utilities/interactable.gd" id="1_yxda8"]
+[ext_resource type="Script" uid="uid://cdnc1xykcmxhd" path="res://Entities/EntityScripts/fish.gd" id="1_yxda8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wnsl6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
 
 [node name="Fish" type="Area3D" unique_id=1762001001]
 collision_layer = 8
@@ -12,3 +14,6 @@ metadata/_custom_type_script = "uid://do3qssxsmptyx"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
 shape = SubResource("BoxShape3D_wnsl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=82782438]
+mesh = SubResource("BoxMesh_wnsl6")

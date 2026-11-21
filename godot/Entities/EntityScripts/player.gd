@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var model: Node3D
+@export var fishing_ray: RayCast3D
 
 var ROTATION_SPEED: float = 1.7
 var MOVEMENT_SPEED: float = 4.6
@@ -30,3 +31,17 @@ func _physics_process(delta: float) -> void:
 				Global.current_player_state = Global.PlayerState.AIM
 			Global.PlayerState.AIM:
 				Global.current_player_state = Global.PlayerState.TRAVERSE
+	
+	# Start fishing
+	_handle_fishing()
+
+
+func _handle_fishing() -> void:
+	if not fishing_ray:
+		push_error("Fishing Ray is not assigned in the Player scene!")
+		return
+	if(fishing_ray.is_colliding() and fishing_ray.get_collider() is EnvironmentFish):
+		var current_fish: EnvironmentFish = fishing_ray.get_collider()
+		if Input.is_action_just_pressed("fish"):
+			current_fish.activate_fishing()
+			Events.start_fishing.emit()
