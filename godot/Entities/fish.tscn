@@ -1,19 +1,21 @@
 [gd_scene format=3 uid="uid://snbg7q6yiuf0"]
 
 [ext_resource type="Script" uid="uid://cdnc1xykcmxhd" path="res://Entities/EntityScripts/fish.gd" id="1_yxda8"]
+[ext_resource type="PackedScene" uid="uid://cbrluoqcmkaax" path="res://Entities/fish_boost.tscn" id="2_jxsqi"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wnsl6"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_tcnsb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
 
 [node name="Fish" type="Area3D" unique_id=1762001001]
-collision_layer = 8
-collision_mask = 0
+collision_layer = 12
+collision_mask = 64
 script = ExtResource("1_yxda8")
+fish_boost = ExtResource("2_jxsqi")
 metadata/_custom_type_script = "uid://do3qssxsmptyx"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
-shape = SubResource("BoxShape3D_wnsl6")
+shape = SubResource("SphereShape3D_tcnsb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=82782438]
 mesh = SubResource("BoxMesh_wnsl6")

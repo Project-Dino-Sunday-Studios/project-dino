@@ -49,16 +49,22 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#TODO: change these magic numbers
-	if Global.current_player_state == Global.PlayerState.AIM:
-		fov = 75
-		if crosshair:
-			crosshair.visible = true
-		fishing_ray.process_mode = ProcessMode.PROCESS_MODE_INHERIT
-	else: # Global.current_player_state == Global.PlayerState.TRAVERSE
-		fov = 90
-		if crosshair:
-			crosshair.visible = false
-		fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	match Global.current_player_state:
+		Global.PlayerState.AIM:
+			fov = 75
+			if crosshair:
+				crosshair.visible = true
+			fishing_ray.process_mode = ProcessMode.PROCESS_MODE_INHERIT
+		Global.PlayerState.TRAVERSE: # Global.current_player_state == Global.PlayerState.TRAVERSE
+			fov = 90
+			if crosshair:
+				crosshair.visible = false
+			fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+		Global.PlayerState.FISH:
+			fov = 75
+			if crosshair:
+				crosshair.visible = false
+			fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
 	
 	var tween: Tween = create_tween()
 	if fishing_ray.is_colliding() and fishing_ray.get_collider() is EnvironmentFish:
