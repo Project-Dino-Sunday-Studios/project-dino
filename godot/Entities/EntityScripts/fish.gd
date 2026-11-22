@@ -31,8 +31,10 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.move_toward(target_position, reel_speed * delta)
 		if Input.is_action_pressed("move_left"):
 			global_position += global_basis.x.normalized() * reel_strafe_speed * delta
+			rotation.y += deg_to_rad(-20)
 		if Input.is_action_pressed("move_right"):
 			global_position += -global_basis.x.normalized() * reel_strafe_speed * delta
+			rotation.y += deg_to_rad(20)
 	
 	if has_overlapping_areas():
 		var got_boost: FishBoost = get_overlapping_areas()[0]
@@ -45,7 +47,7 @@ func activate_fishing(player: CharacterBody3D) -> void:
 	current_state = FishState.FISHING
 	current_player = player
 	Global.current_player_state = Global.PlayerState.FISH
-	target_position = current_player.global_position - Vector3(0, 1, 0)
+	target_position = current_player.global_position - Vector3(0, 0, 0)
 	look_at(target_position)
 	
 	var num_boosts: int = int(global_position.distance_to(player.global_position) / boost_interval)

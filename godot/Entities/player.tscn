@@ -336,16 +336,17 @@ height = 0.525
 radius = 0.682
 height = 0.053
 
+[sub_resource type="SphereMesh" id="SphereMesh_oxtoc"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
 radius = 1.0
 
-[sub_resource type="SphereMesh" id="SphereMesh_oxtoc"]
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oxtoc"]
-graph_offset = Vector2(-231.75714, -31.46241)
+graph_offset = Vector2(-47.53015, 217.04648)
 nodes/output/position = Vector2(520, 140)
 
 [node name="Player" type="CharacterBody3D" unique_id=1369565701 node_paths=PackedStringArray("model", "fish_catcher")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_tcnsb")
 model = NodePath("Model")
 fish_catcher = NodePath("FishCatcher")
@@ -357,7 +358,7 @@ shape = SubResource("BoxShape3D_onrkg")
 [node name="Model" type="Node3D" parent="." unique_id=1177248948]
 
 [node name="person" type="MeshInstance3D" parent="Model" unique_id=472380683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35081458, 0.52137846, 0.048877954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06789112, 0.52137846, 1.0872371)
 mesh = SubResource("CapsuleMesh_wnsl6")
 
 [node name="spinosaur" type="Node3D" parent="Model" unique_id=1872966064]
@@ -847,9 +848,6 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 3.38328
 visible = false
 mesh = SubResource("SphereMesh_wnsl6")
 
-[node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.841, 1.719, -0.7252155)
-
 [node name="IKHeadRotationPivot" type="Marker3D" parent="Model" unique_id=370335595 node_paths=PackedStringArray("detached_cam_pivot", "model")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.27603775, 0.9159024)
 script = ExtResource("2_gb1tc")
@@ -863,6 +861,9 @@ mesh = SubResource("SphereMesh_oxtoc")
 
 [node name="IKHeadTarget" type="Marker3D" parent="Model/IKHeadRotationPivot" unique_id=1207123933]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.32333404, 1.0782303)
+
+[node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -0.4222943, 1.7190001, 0.31314373)
 
 [node name="DetachedCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2571487, 0, 0)
@@ -879,6 +880,7 @@ collision_mask = 4
 
 [node name="FishCatcherCollision" type="CollisionShape3D" parent="FishCatcher" unique_id=586154554]
 shape = SubResource("SphereShape3D_wnsl6")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2140875530]
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=1295704205]

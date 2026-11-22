@@ -4,9 +4,9 @@
 [ext_resource type="Material" uid="uid://vupq4xdw4cs4" path="res://Shaders/Water/water_material.tres" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://dmp6ap3tuv1dq" path="res://Shaders/Fish/fish-object.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="7_272bh"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
 
@@ -20,6 +20,8 @@ size = Vector3(6, 5, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
 size = Vector3(6, 5, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
 
 [node name="Main" type="Node3D" unique_id=1088817240]
 
@@ -55,8 +57,13 @@ collide_with_areas = true
 transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153, 0.83257854, 0.45348525, -0.8620442, 0.22634262, -6.400569, 5.9331646, 4.17482)
 
 [node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8837707, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029289484, 0)
+collision_layer = 16
+collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
+
+[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="7" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
+game_camera = NodePath("../../../Camera3D")
 
 [node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("3_h2yge")]
 
@@ -69,13 +76,20 @@ shape = SubResource("BoxShape3D_yddjp")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=117726257]
 mesh = SubResource("BoxMesh_wnsl6")
 
-[node name="Crosshair" parent="." unique_id=768079159 instance=ExtResource("4_1bvp3")]
-
 [node name="Fish" parent="." unique_id=1762001001 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.045309246, 0)
 
 [node name="FishObject" parent="." unique_id=1846269564 instance=ExtResource("4_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0735807, 0.07866621, 4.270936)
+
+[node name="Crosshair" parent="." unique_id=768079159 instance=ExtResource("7_272bh")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=381503828]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=443746452]
+shape = SubResource("SphereShape3D_wnsl6")
 
 [editable path="Player2"]
 [editable path="Crosshair"]
