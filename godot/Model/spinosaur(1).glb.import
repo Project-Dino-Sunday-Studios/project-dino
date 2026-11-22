@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cdy6e6gdoa7a3"
-path="res://.godot/imported/Spinosaur-rig-02.glb-8645d99d9a8981a7d5ccf53cb5efff74.scn"
+uid="uid://daglj40iile35"
+path="res://.godot/imported/spinosaur(1).glb-c831f821f55a2546e16561455bf471af.scn"
 
 [deps]
 
-source_file="res://Spinosaur-rig-02.glb"
-dest_files=["res://.godot/imported/Spinosaur-rig-02.glb-8645d99d9a8981a7d5ccf53cb5efff74.scn"]
+source_file="res://Model/spinosaur(1).glb"
+dest_files=["res://.godot/imported/spinosaur(1).glb-c831f821f55a2546e16561455bf471af.scn"]
 
 [params]
 
