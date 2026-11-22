@@ -1,0 +1,50 @@
+class_name Inventory
+
+extends Control
+
+##Script for manage inventory
+
+@onready var inventory_grid: InventoryGrid = $VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid
+const FISH_SCENE := preload("res://Scenes/fish.tscn")
+
+
+#Debug Input
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("debug_spawn_fish"):
+		spawn_fish(Fish.FishType.PIKAIA)
+
+
+#Function for spawn a fish in inventory
+func spawn_fish(type: Fish.FishType) -> void:
+	#Spawn a fish
+	var fish = FISH_SCENE.instantiate() as Fish
+	
+	#Match a fish's type and assign texture and dimension
+	match type:
+		Fish.FishType.TRILOBITE:
+			fish.fish_texture = load("res://Assets/UI/Sprites/Trilobite.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0)])
+			
+		Fish.FishType.PIKAIA:
+			fish.fish_texture = load("res://Assets/UI/Sprites/pikaia.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0), Vector2i(1,1)])
+			
+		Fish.FishType.CALLICHIMAERA:
+			fish.fish_texture = load("res://Assets/UI/Sprites/Callichimaera.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0)])
+		
+		Fish.FishType.MOYTHOMASIA:
+			fish.fish_texture = load("res://Assets/UI/Sprites/moythomasia.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0)])
+			
+		Fish.FishType.XENACANTHUS:
+			fish.fish_texture = load("res://Assets/UI/Sprites/Xenacanthus.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0), Vector2i(2,0)])
+			
+		Fish.FishType.OSTEOLEPIS:
+			fish.fish_texture = load("res://Assets/UI/Sprites/osteolepis.png") as Texture2D
+			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0)])
+	
+	fish.inventory_grid = inventory_grid
+	add_child(fish)
+	fish.global_position = $VBoxContainer/HBoxContainer/RearrageZone.get_global_rect().get_center()

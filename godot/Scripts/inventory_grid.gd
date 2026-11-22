@@ -1,3 +1,4 @@
+class_name InventoryGrid
 extends Control
 
 
@@ -102,10 +103,6 @@ func _on_resized() -> void:
 		gridData.initialize_grid(grid_size)
 		
 		grid_initialized = true
-		
-		gridData.place_cells(test_cells)
-		
-		gridData.inventory_debug()
 	
 	queue_redraw()
 
@@ -116,4 +113,27 @@ func get_cell_position(cell: Vector2i) -> Vector2:
 	return Vector2(
 			cell.x * cell_size + grid_origin_calc().x,
 			cell.y * cell_size + grid_origin_calc().y,
+	)
+
+
+#Returns the center of the given cell in global coordinates.
+func get_global_cell_center(cell: Vector2i) -> Vector2:
+	#Calculating local coordinates
+	var cell_position := get_cell_position(cell)
+	var local_center := Vector2(
+			cell_position.x + cell_size / 2.0,
+			cell_position.y + cell_size / 2.0
+			)
+	
+	#Return global coordinates
+	return get_global_transform() * local_center
+
+
+#Calculating the fish's cell
+func global_to_cell(global_point: Vector2) -> Vector2i:
+	var local_point := get_global_transform().affine_inverse() * global_point
+	
+	return Vector2i(
+		floori((local_point.x - grid_origin_calc().x) / cell_size),
+		floori((local_point.y - grid_origin_calc().y) / cell_size),
 	)

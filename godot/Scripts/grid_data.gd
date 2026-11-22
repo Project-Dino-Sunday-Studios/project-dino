@@ -83,6 +83,7 @@ func can_place_cells(cells: Array[Vector2i]) -> bool:
 	return true
 
 
+#Place occupied cells in grid
 func place_cells(cells: Array[Vector2i]) -> bool:
 	#Check cells are aviable
 	if not can_place_cells(cells):
@@ -92,8 +93,30 @@ func place_cells(cells: Array[Vector2i]) -> bool:
 		set_cell(cell, CellState.OCCUPIED)
 	
 	return true
-		
 
+
+#Clear occupied cells in grid when delete a fish
+func clear_cells(cells: Array[Vector2i]) -> bool:
+	#check cells are aviable
+	if not check_clear_cells(cells):
+		return false
+	#Set cell EMPTY
+	for cell in cells:
+		set_cell(cell, CellState.EMPTY)
+	
+	return true
+
+
+#Check cell is occupied and valid
+func check_clear_cells(cells: Array[Vector2i]) -> bool:
+	if cells.is_empty():
+		return false
+	
+	for cell in cells:
+		if get_cell(cell) != CellState.OCCUPIED:
+			return false
+	
+	return true
 
 #Debugging
 func inventory_debug() -> void:
