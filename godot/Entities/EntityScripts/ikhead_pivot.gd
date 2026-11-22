@@ -4,6 +4,9 @@ extends Node3D
 @export var PIVOT_CAP_Y : float = 75.0
 
 @export var detached_cam_pivot : Node3D
+@export var attached_cam_pivot : Node3D
+var active_camera : Node3D
+
 @export var model : Node3D
 @export var game_camera: Camera3D
 
@@ -12,6 +15,7 @@ var rotation_difference : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	active_camera = detached_cam_pivot
 	pass 
 
 func _process(delta: float) -> void:

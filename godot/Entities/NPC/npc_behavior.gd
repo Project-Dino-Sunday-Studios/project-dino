@@ -1,0 +1,20 @@
+extends Node
+var isPlayerInside : bool = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+func _on_interaction_area_body_entered(body: Node3D) -> void:
+	if body.is_in_group("player"): 
+		isPlayerInside = true
+		print("player in area")
+	
+func _on_interaction_area_body_exited(body: Node3D) -> void:
+	if body.is_in_group("player"):
+		isPlayerInside = false
+		print("player left area")

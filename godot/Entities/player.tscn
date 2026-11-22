@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1j0bwflm51kq" path="res://Entities/EntityScripts/player.gd" id="1_tcnsb"]
 [ext_resource type="Script" uid="uid://dn0jw6gul2wc" path="res://Entities/EntityScripts/ikhead_pivot.gd" id="2_gb1tc"]
+[ext_resource type="Material" uid="uid://dyu5isrmk6egs" path="res://Model/Textures/spino.tres" id="2_xd3k7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_onrkg"]
 size = Vector3(1, 1.9405518, 1.84552)
@@ -773,31 +774,37 @@ bones/57/rotation = Quaternion(2.9899507e-14, 1.815446e-09, -2.8312206e-07, 1)
 bones/57/scale = Vector3(1, 1, 1)
 
 [node name="collar_low" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=1428336718]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_wr5ih")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
 
 [node name="dientes_low" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=2137266237]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_r15vo")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
 
 [node name="L_eye" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=1157749774]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_6f1um")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
 
 [node name="mojardaco_low" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=200424245]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_k47bh")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
 
 [node name="R_eye" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=1221608984]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_ob0t4")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
 
 [node name="spino_low" type="MeshInstance3D" parent="Model/spinosaur/Skeleton3D" unique_id=234508656]
+material_override = ExtResource("2_xd3k7")
 mesh = SubResource("ArrayMesh_eah1p")
 skin = SubResource("Skin_vt1bo")
 skeleton = NodePath("..")
@@ -848,10 +855,14 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 3.38328
 visible = false
 mesh = SubResource("SphereMesh_wnsl6")
 
-[node name="IKHeadRotationPivot" type="Marker3D" parent="Model" unique_id=370335595 node_paths=PackedStringArray("detached_cam_pivot", "model")]
+[node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.841, 1.719, -1.077)
+
+[node name="IKHeadRotationPivot" type="Marker3D" parent="Model" unique_id=370335595 node_paths=PackedStringArray("detached_cam_pivot", "attached_cam_pivot", "model")]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.27603775, 0.9159024)
 script = ExtResource("2_gb1tc")
 detached_cam_pivot = NodePath("../../DetachedCameraPivot")
+attached_cam_pivot = NodePath("../AttachedCameraPivot")
 model = NodePath("..")
 
 [node name="IKTargetHolder" type="MeshInstance3D" parent="Model/IKHeadRotationPivot" unique_id=1498945344]
@@ -861,9 +872,6 @@ mesh = SubResource("SphereMesh_oxtoc")
 
 [node name="IKHeadTarget" type="Marker3D" parent="Model/IKHeadRotationPivot" unique_id=1207123933]
 transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.9999998, 0, 0.32333404, 1.0782303)
-
-[node name="FishingCameraLocation" type="Marker3D" parent="Model" unique_id=649422614]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -0.4222943, 1.7190001, 0.31314373)
 
 [node name="DetachedCameraPivot" type="Marker3D" parent="." unique_id=1721329254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2571487, 0, 0)

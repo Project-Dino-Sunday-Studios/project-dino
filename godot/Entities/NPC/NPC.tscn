@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://4h0jdw3pir2i"]
+
+[ext_resource type="Script" uid="uid://bwi3d4klm87r3" path="res://Entities/NPC/npc_behavior.gd" id="1_6d28k"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oxtoc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oxtoc"]
+size = Vector3(9.7178955, 3.4920654, 10.555542)
+
+[node name="Npc" type="Node3D" unique_id=833796758]
+script = ExtResource("1_6d28k")
+
+[node name="Character" type="MeshInstance3D" parent="." unique_id=1611501095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.036378, 0)
+mesh = SubResource("CapsuleMesh_oxtoc")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=402526840]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=753821990]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055725098, 1.8249468, 0.00018310547)
+shape = SubResource("BoxShape3D_oxtoc")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
