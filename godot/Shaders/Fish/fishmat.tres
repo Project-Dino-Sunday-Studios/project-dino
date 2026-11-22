@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d3n6w5asjshcu"]
+
+[ext_resource type="Shader" uid="uid://cuf655skbissa" path="res://Shaders/Fish/fishvisual.gdshader" id="1_1jca7"]
+[ext_resource type="Texture2D" uid="uid://hlgvbb8p3r5" path="res://Shaders/Fish/Fish_For_3d_Plane.png" id="2_xh4mk"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1jca7")
+shader_parameter/baseImg = ExtResource("2_xh4mk")
+shader_parameter/displaceX = 3.0
+shader_parameter/offset = 0.0
+shader_parameter/strength = 0.5
+shader_parameter/speed = 3.0
+shader_parameter/timeOffset = 0.3
