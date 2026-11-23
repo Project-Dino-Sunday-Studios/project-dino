@@ -2,10 +2,16 @@ extends CanvasLayer
 
 @export var leave_button: Button
 
+@export var name_object : RichTextLabel
+@export var character_sprite : Sprite2D
+@export var background : TextureRect
+
+@export var animator : AnimationPlayer
+
 func _setup_interaction(npc : NPC.NPCData):
-	$DialogueBox/NamePanel/Name.text = npc.name
-	$ChefRender.texture = npc.sprite
-	$Background.texture = npc.background_sprite
+	name_object.text = npc.name
+	character_sprite.texture = npc.sprite
+	background.texture = npc.background_sprite
 	pass
 	
 func _ready() -> void:
@@ -20,6 +26,7 @@ func _physics_process(_delta: float) -> void:
 
 func _start_interact(npc : NPC.NPCData):
 	_setup_interaction(npc)
+	animator.play("open")
 	_toggle_interact(true)
 	pass
 	

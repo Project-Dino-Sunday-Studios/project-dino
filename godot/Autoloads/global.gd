@@ -3,7 +3,7 @@ extends Node
 enum PlayerState {
 	TRAVERSE,
 	AIM,
-	FISH
+	FISH,
 }
 
 var current_player_state: PlayerState
