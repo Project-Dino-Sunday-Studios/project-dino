@@ -339,13 +339,18 @@ height = 0.053
 
 [sub_resource type="SphereMesh" id="SphereMesh_oxtoc"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
+radius = 1.0
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oxtoc"]
-graph_offset = Vector2(-231.75714, -31.46241)
+graph_offset = Vector2(-47.53015, 217.04648)
 nodes/output/position = Vector2(520, 140)
 
-[node name="Player" type="CharacterBody3D" unique_id=1369565701 node_paths=PackedStringArray("model")]
+[node name="Player" type="CharacterBody3D" unique_id=1369565701 node_paths=PackedStringArray("model", "fish_catcher")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_tcnsb")
 model = NodePath("Model")
+fish_catcher = NodePath("FishCatcher")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1426608886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47027588, -0.05758667)
@@ -354,7 +359,7 @@ shape = SubResource("BoxShape3D_onrkg")
 [node name="Model" type="Node3D" parent="." unique_id=1177248948]
 
 [node name="person" type="MeshInstance3D" parent="Model" unique_id=472380683]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35081458, 0.52137846, 0.048877954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06789112, 0.52137846, 1.0872371)
 mesh = SubResource("CapsuleMesh_wnsl6")
 
 [node name="spinosaur" type="Node3D" parent="Model" unique_id=1872966064]
@@ -876,6 +881,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1
 spring_length = 7.0
 
 [node name="DetachedCameraLocation" type="Marker3D" parent="DetachedCameraPivot/SpringArm3D" unique_id=1424784790]
+
+[node name="FishCatcher" type="Area3D" parent="." unique_id=1307468276]
+collision_layer = 0
+collision_mask = 4
+
+[node name="FishCatcherCollision" type="CollisionShape3D" parent="FishCatcher" unique_id=586154554]
+shape = SubResource("SphereShape3D_wnsl6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2140875530]
 

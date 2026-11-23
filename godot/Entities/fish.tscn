@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://snbg7q6yiuf0"]
+
+[ext_resource type="Script" uid="uid://cdnc1xykcmxhd" path="res://Entities/EntityScripts/fish.gd" id="1_yxda8"]
+[ext_resource type="PackedScene" uid="uid://cbrluoqcmkaax" path="res://Entities/fish_boost.tscn" id="2_jxsqi"]
+[ext_resource type="PackedScene" uid="uid://dmp6ap3tuv1dq" path="res://Shaders/Fish/fish-object.tscn" id="3_4w0c6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(1.1749573, 0.62316895, 2.0396729)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
+
+[node name="Fish" type="Area3D" unique_id=1762001001]
+collision_layer = 12
+collision_mask = 64
+script = ExtResource("1_yxda8")
+fish_boost = ExtResource("2_jxsqi")
+metadata/_custom_type_script = "uid://do3qssxsmptyx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030380249, -0.18841553, -0.2705431)
+shape = SubResource("BoxShape3D_272bh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=82782438]
+visible = false
+mesh = SubResource("BoxMesh_wnsl6")
+
+[node name="FishObject" parent="." unique_id=1846269564 instance=ExtResource("3_4w0c6")]
+transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
