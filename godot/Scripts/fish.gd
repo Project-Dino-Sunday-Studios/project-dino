@@ -153,6 +153,15 @@ func get_footprint_bounds(_footprint: Array[Vector2i]) -> Vector2i:
 	return Vector2i(max_x +1, max_y +1)
 
 
+#Get anchor for fish
+func get_cells_at_anchor(anchor: Vector2i) -> Array[Vector2i]:
+	var cells: Array[Vector2i] = []
+	for offset in footprint:
+		cells.append(anchor + offset)
+	
+	return cells
+
+
 func _on_body_entered(body: Node) -> void:
 	if not freeze:
 		if body.name == "InventoryFloor":
