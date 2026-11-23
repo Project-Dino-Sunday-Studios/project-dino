@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://4h0jdw3pir2i"]
 
 [ext_resource type="Script" uid="uid://bwi3d4klm87r3" path="res://Entities/NPC/npc_behavior.gd" id="1_6d28k"]
+[ext_resource type="Texture2D" uid="uid://bygxfpeoefocf" path="res://UI/Art/chef_render.png" id="2_8ee2b"]
+[ext_resource type="Texture2D" uid="uid://cv11dij8wt7xr" path="res://UI/Art/fishmonger_background.png" id="3_mdhkh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oxtoc"]
 
@@ -9,6 +11,9 @@ size = Vector3(9.7178955, 3.4920654, 10.555542)
 
 [node name="Npc" type="Node3D" unique_id=833796758]
 script = ExtResource("1_6d28k")
+character_name = "Chef"
+character_sprite = ExtResource("2_8ee2b")
+background_sprite = ExtResource("3_mdhkh")
 
 [node name="Character" type="MeshInstance3D" parent="." unique_id=1611501095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.036378, 0)

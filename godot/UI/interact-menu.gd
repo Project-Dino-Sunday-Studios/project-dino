@@ -2,13 +2,25 @@ extends CanvasLayer
 
 @export var leave_button: Button
 
+func _setup_interaction(npc : NPC.NPCData):
+	$DialogueBox/NamePanel/Name.text = npc.name
+	$ChefRender.texture = npc.sprite
+	$Background.texture = npc.background_sprite
+	pass
+	
 func _ready() -> void:
 	hide()
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
-		_toggle_interact(true)
+		_start_interact()
+		
 
+func _start_interact():
+	_toggle_interact(true)
+	#_setup_interaction() <- include for parameter
+	pass
+	
 func _toggle_interact(state: bool) -> void:
 	visible = state
 	

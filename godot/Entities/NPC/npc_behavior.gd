@@ -1,4 +1,21 @@
-extends Node
+extends Node3D
+class_name NPC
+
+#for passing into other information
+class NPCData:
+	var name : String
+	var sprite : Texture2D
+	var background_sprite : Texture2D
+	
+	func _init(n : String, s : Texture2D, bg : Texture2D) -> void:
+		name = n
+		sprite = s
+		background_sprite = bg
+		
+@export var character_name : String
+@export var character_sprite : Texture2D
+@export var background_sprite : Texture2D
+
 var isPlayerInside : bool = false
 
 # Called when the node enters the scene tree for the first time.
