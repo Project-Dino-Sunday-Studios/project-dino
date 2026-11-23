@@ -51,6 +51,7 @@ game_camera = NodePath("../../../Camera3D")
 transform = Transform3D(0.8111676, 0.29398134, -0.50555134, 0.3692672, 0.41286156, 0.8325786, 0.45348525, -0.8620443, 0.22634225, -6.400569, 5.9331646, 4.17482)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
 shape = SubResource("WorldBoundaryShape3D_wnsl6")
@@ -89,13 +90,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 5.5)
 shape = SubResource("BoxShape3D_yddjp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=117726257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.052017, 0, 0)
 mesh = SubResource("BoxMesh_wnsl6")
 
 [node name="Fish" parent="." unique_id=1762001001 instance=ExtResource("5_o0wup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.045309246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.38470894, -18.131386)
 
 [node name="Fish2" parent="." unique_id=2110615037 instance=ExtResource("5_o0wup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4143867, 0.045308292, -6.050464)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.627214, -0.16970807, -16.55051)
+
+[node name="Fish3" parent="." unique_id=511261141 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.529308, -0.16970807, 20.691696)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=381503828]
 collision_layer = 0
