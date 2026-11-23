@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://lw6q7qkjr2mi"]
+
+[ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="1_fh8pw"]
+[ext_resource type="Material" uid="uid://vupq4xdw4cs4" path="res://Shaders/Water/water_material.tres" id="2_h3i4t"]
+[ext_resource type="Script" uid="uid://c2vjqxwnw6bol" path="res://Entities/EntityScripts/main_camera.gd" id="3_adj2x"]
+[ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1vg5q"]
+[ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_o0wup"]
+[ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_u3nf3"]
+[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/dodo transparent.png" id="7_slp6v"]
+[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="8_cd0ni"]
+[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/fishmonger transparent.png" id="9_umyxl"]
+[ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="10_rkjbj"]
+[ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_5lt7j"]
+[ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="12_44q20"]
+[ext_resource type="Texture2D" uid="uid://qv14lti4i3j2" path="res://Assets/map.png" id="13_h3i4t"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnsl6"]
+size = Vector2(20, 20)
+subdivide_width = 1000
+subdivide_depth = 1000
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yddjp"]
+size = Vector3(6, 5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
+size = Vector3(6, 5, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
+
+[node name="Explore" type="Node3D" unique_id=319776061]
+
+[node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("1_fh8pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029289484, 0)
+collision_layer = 16
+collision_mask = 0
+fishing_ray = NodePath("../Camera3D/RayCast3D")
+
+[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="8" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
+game_camera = NodePath("../../../Camera3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
+transform = Transform3D(0.8111676, 0.29398134, -0.50555134, 0.3692672, 0.41286156, 0.8325786, 0.45348525, -0.8620443, 0.22634225, -6.400569, 5.9331646, 4.17482)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
+shape = SubResource("WorldBoundaryShape3D_wnsl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1110501818]
+transform = Transform3D(18.707706, 0, 0, 0, 18.707706, 0, 0, 0, 18.707706, -17.467329, -0.14103818, -36.826317)
+material_override = ExtResource("2_h3i4t")
+mesh = SubResource("PlaneMesh_wnsl6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=251754734 node_paths=PackedStringArray("main_camera", "attached_camera_pivot", "attached_camera_location", "detached_camera_pivot", "detached_camera_location", "fishing_camera_location", "fishing_ray", "crosshair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2962601, 4.17482)
+fov = 90.0
+script = ExtResource("3_adj2x")
+main_camera = NodePath(".")
+attached_camera_pivot = NodePath("../Player2/Model/AttachedCameraPivot")
+attached_camera_location = NodePath("../Player2/Model/AttachedCameraPivot/AttachedCameraLocation")
+detached_camera_pivot = NodePath("../Player2/DetachedCameraPivot")
+detached_camera_location = NodePath("../Player2/DetachedCameraPivot/SpringArm3D/DetachedCameraLocation")
+fishing_camera_location = NodePath("../Player2/Model/FishingCameraLocation")
+fishing_ray = NodePath("RayCast3D")
+crosshair = NodePath("Crosshair/CenterContainer")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1579200859]
+target_position = Vector3(0, 0, -20)
+collision_mask = 9
+collide_with_areas = true
+
+[node name="Crosshair" parent="Camera3D" unique_id=768079159 instance=ExtResource("4_1vg5q")]
+
+[node name="Main" type="Node3D" parent="." unique_id=1088817240]
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1134548507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 5.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=429534653]
+shape = SubResource("BoxShape3D_yddjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=117726257]
+mesh = SubResource("BoxMesh_wnsl6")
+
+[node name="Fish" parent="." unique_id=1762001001 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.045309246, 0)
+
+[node name="Fish2" parent="." unique_id=2110615037 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.4143867, 0.045308292, -6.050464)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=381503828]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=443746452]
+shape = SubResource("SphereShape3D_wnsl6")
+
+[node name="Npc" parent="." unique_id=833796758 instance=ExtResource("6_u3nf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, 0)
+character_name = "Dodo Farmer"
+character_sprite = ExtResource("7_slp6v")
+background_sprite = ExtResource("8_cd0ni")
+
+[node name="Npc2" parent="." unique_id=525867179 instance=ExtResource("6_u3nf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, -6.3838344)
+character_name = "Fishmonger"
+character_sprite = ExtResource("9_umyxl")
+
+[node name="InteractionMenu" parent="." unique_id=2017595401 instance=ExtResource("10_rkjbj")]
+
+[node name="GameplayInterface" parent="." unique_id=1194949549 instance=ExtResource("11_5lt7j")]
+
+[node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("12_44q20")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1596978901]
+transform = Transform3D(12.71, 0, 0, 0, -5.555718e-07, 12.71, 0, -12.71, -5.555718e-07, -16.481491, -9.140717, -37.794174)
+texture = ExtResource("13_h3i4t")
+
+[editable path="Player2"]
+[editable path="Camera3D/Crosshair"]
