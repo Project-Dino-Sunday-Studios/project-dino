@@ -11,7 +11,8 @@ const FISH_SCENE := preload("res://Scenes/fish.tscn")
 #Debug Input
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_spawn_fish"):
-		spawn_fish(Fish.FishType.PIKAIA)
+		var fish_type := Fish.FishType.values().pick_random() as Fish.FishType
+		spawn_fish(fish_type)
 
 
 #Function for spawn a fish in inventory

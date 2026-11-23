@@ -46,20 +46,43 @@ func start_fall() -> void:
 func _physics_process(_delta: float) -> void:
 	if is_dragging:
 		global_position = drag_offset + get_global_mouse_position()
-	
-	if not freeze:
-		var cell := inventory_grid.global_to_cell(global_position)
-		if landing_pending:
-			if inventory_grid.gridData.place_cells([cell]):
-				occupied_cells.append(cell) #Append the occupied cell to array
-				inventory_grid.queue_redraw() #For debug the grid
-				freeze = true #Lock the fish
-				global_position = inventory_grid.get_global_cell_center(cell)
-				print("Fish placed", cell)
-			else:
-				print("Placment Reject", cell)
+	#Handle a pending landing while the fish is still falling
+	if not freeze and landing_pending:
+		#Get the width and height of the current footprint in cells
+		var bounds := get_footprint_bounds(footprint)
+		#Use the global center of cell (0,0) as a reference
+		var first_center := inventory_grid.get_global_cell_center(Vector2i.ZERO)
+		#Convert the cell counts to the last cell index on each axis
+		#For a 2 x 2 footprint, the last index is (1,1)
+		var last_index := bounds - Vector2i.ONE
+		#Get a global center of the cell at the opposite corner
+		var last_center := inventory_grid.get_global_cell_center(last_index)
+		#Halve the displacement to get the offset from the first cell
+		# center to the center of the whole footprint
+		var center_offset := (last_center - first_center) / 2
+		#Subtract the offset to find the anchor point from the fish's center
+		var anchor_point := global_position - center_offset
+		#Convert that global point to an integer grid coordinate
+		var anchor := inventory_grid.global_to_cell(anchor_point)
+		#Get every cell the fish would occupy at this anchor
+		var cells := get_cells_at_anchor(anchor)
+		#Place the fish only if every requested cell is aviable
+		if inventory_grid.gridData.place_cells(cells):
+			#Store the grid cells occupied by fish
+			occupied_cells.assign(cells)
+			#Stop the fish after a successful placement
+			freeze = true
+			#Add the same offset to the exact anchor center to snap the fish into place
+			global_position = inventory_grid.get_global_cell_center(anchor) + center_offset
+			#Refresh the grid drawing and log the occupied cells
+			inventory_grid.queue_redraw()
+			print("Fish placed: ", occupied_cells)
+		else:
+			#Log the cells that were requested for the rejected placement
+			print("Placement rejected: ", cells)
 			
-			landing_pending = false
+		#Clear the pending flag after handling the landing attempt
+		landing_pending = false
 		
 
 
@@ -123,6 +146,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 #Manage click on fish
 func _input(event: InputEvent) -> void:
+	#Block input when fish is correctly placed
+	if not occupied_cells.is_empty():
+		return
 	#Check the input event
 	if not is_dragging:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
@@ -153,10 +179,13 @@ func get_footprint_bounds(_footprint: Array[Vector2i]) -> Vector2i:
 	return Vector2i(max_x +1, max_y +1)
 
 
-#Get anchor for fish
+#Get anchor for fish (up-left cell)
 func get_cells_at_anchor(anchor: Vector2i) -> Array[Vector2i]:
+	#Create empty array
 	var cells: Array[Vector2i] = []
+	#Scroll the footprint cells
 	for offset in footprint:
+		#Add columns with columns and rows with rows
 		cells.append(anchor + offset)
 	
 	return cells
@@ -164,5 +193,5 @@ func get_cells_at_anchor(anchor: Vector2i) -> Array[Vector2i]:
 
 func _on_body_entered(body: Node) -> void:
 	if not freeze:
-		if body.name == "InventoryFloor":
+		if body.name == "InventoryFloor" or body is Fish:
 			landing_pending = true
