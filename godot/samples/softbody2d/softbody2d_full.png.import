@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv11dij8wt7xr"
-path="res://.godot/imported/fishmonger_background.png-f6333e88e93c5465700e502ecd8c5cd0.ctex"
+uid="uid://bdmvqnqwpwqvv"
+path="res://.godot/imported/softbody2d_full.png-053fb32b8795a9aefcb864c4f6f9543d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/fishmonger_background.png"
-dest_files=["res://.godot/imported/fishmonger_background.png-f6333e88e93c5465700e502ecd8c5cd0.ctex"]
+source_file="res://samples/softbody2d/softbody2d_full.png"
+dest_files=["res://.godot/imported/softbody2d_full.png-053fb32b8795a9aefcb864c4f6f9543d.ctex"]
 
 [params]
 

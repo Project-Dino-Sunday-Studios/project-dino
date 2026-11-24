@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7vnbo7tt1fg"
-path="res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"
+uid="uid://dpwc3d6vvuacd"
+path="res://.godot/imported/voronoi_icon.png-2535410cd471b1c819b10e29f605ac2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.webp"
-dest_files=["res://.godot/imported/icon.webp-e94f9a68b0f625a567a797079e4d325f.ctex"]
+source_file="res://addons/softbody2d/voronoi_icon.png"
+dest_files=["res://.godot/imported/voronoi_icon.png-2535410cd471b1c819b10e29f605ac2f.ctex"]
 
 [params]
 

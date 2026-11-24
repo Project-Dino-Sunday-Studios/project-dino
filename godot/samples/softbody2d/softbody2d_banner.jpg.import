@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdk0qodv8m0r5"
-path="res://.godot/imported/chef_and_oviraptor.png-738509b55b757df19952c6631f0fa28c.ctex"
+uid="uid://do1eewnu5psgw"
+path="res://.godot/imported/softbody2d_banner.jpg-bc7627573dd9123baa6a5b33136e178b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/chef_and_oviraptor.png"
-dest_files=["res://.godot/imported/chef_and_oviraptor.png-738509b55b757df19952c6631f0fa28c.ctex"]
+source_file="res://samples/softbody2d/softbody2d_banner.jpg"
+dest_files=["res://.godot/imported/softbody2d_banner.jpg-bc7627573dd9123baa6a5b33136e178b.ctex"]
 
 [params]
 

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bde8tcm14wnhm"]
+
+[ext_resource type="Script" uid="uid://cbnc1txbuo86h" path="res://Scripts/fish.gd" id="1_twvwo"]
+[ext_resource type="Texture2D" uid="uid://c6kgatcjsiaqk" path="res://Assets/UI/Sprites/Trilobite.png" id="2_c4ibo"]
+
+[node name="FishTest" type="RigidBody2D" unique_id=1764849412]
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_twvwo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1966134983]
+scale = Vector2(0.024, 0.024)
+texture = ExtResource("2_c4ibo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1024630088]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
