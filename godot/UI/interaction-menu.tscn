@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cv11dij8wt7xr" path="res://UI/Art/fishmonger_background.png" id="1_b6cny"]
 [ext_resource type="Script" uid="uid://cqt5tkfct1b1d" path="res://UI/interact-menu.gd" id="1_t12xj"]
+[ext_resource type="Material" uid="uid://bhup4bkdr263v" path="res://Shaders/UI/characterShader.tres" id="3_o6g0w"]
 [ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/fishmonger transparent.png" id="3_t12xj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c61y"]
@@ -16,17 +17,108 @@ bg_color = Color(0, 0, 0, 0.47058824)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psa1b"]
 bg_color = Color(0.6, 0.6, 0.6, 0.36862746)
 
-[node name="InteractionMenu" type="CanvasLayer" unique_id=2017595401 node_paths=PackedStringArray("leave_button")]
+[sub_resource type="Animation" id="Animation_o6g0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChefRender:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1317, 598.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1028, 751)]
+}
+
+[sub_resource type="Animation" id="Animation_gnfoq"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBox:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-900, 20), Vector2(40, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChefRender:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.13333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2400, 598.9), Vector2(1317, 598.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.13333334, 0.5333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2000, 750.9), Vector2(1028, 751)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsmka"]
+_data = {
+&"RESET": SubResource("Animation_o6g0w"),
+&"open": SubResource("Animation_gnfoq")
+}
+
+[node name="InteractionMenu" type="CanvasLayer" unique_id=2017595401 node_paths=PackedStringArray("leave_button", "name_object", "character_sprite", "background", "animator")]
 script = ExtResource("1_t12xj")
 leave_button = NodePath("LeaveButton")
+name_object = NodePath("DialogueBox/NamePanel/Name")
+character_sprite = NodePath("ChefRender")
+background = NodePath("Background")
+animator = NodePath("AnimationPlayer")
 
 [node name="Background" type="TextureRect" parent="." unique_id=972349466]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 texture = ExtResource("1_b6cny")
 
 [node name="MenuBox" type="Control" parent="." unique_id=376968563]
@@ -38,7 +130,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -920.0
 offset_top = -520.0
-offset_right = -23.0
+offset_right = -23.002197
 offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -229,6 +321,7 @@ text = "drag here to sell your catch"
 horizontal_alignment = 1
 
 [node name="ChefRender" type="Sprite2D" parent="." unique_id=2026043513]
+material = ExtResource("3_o6g0w")
 position = Vector2(1317, 598.99994)
 scale = Vector2(0.52, 0.52)
 texture = ExtResource("3_t12xj")
@@ -244,8 +337,8 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -892.0
 offset_top = 211.0
-offset_right = -42.0
-offset_bottom = 511.0
+offset_right = -41.992676
+offset_bottom = 510.9922
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -321,16 +414,20 @@ text = "FISHMONGER'S HOUSE"
 
 [node name="LeaveButton" type="Button" parent="." unique_id=1258613075]
 anchors_preset = -1
-anchor_top = 0.91700006
-anchor_right = 0.18300001
-anchor_bottom = 1.0
-offset_left = 129.0
-offset_top = -30.360046
-offset_right = 128.63998
-offset_bottom = -30.0
+anchor_left = 0.067
+anchor_top = 0.88900006
+anchor_right = 0.30100003
+anchor_bottom = 1.021
+offset_left = -61.64
+offset_top = -60.120056
+offset_right = -61.56006
+offset_bottom = -60.04016
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 32
 text = "Leave"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628927131]
+libraries/ = SubResource("AnimationLibrary_rsmka")
 
 [connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]
