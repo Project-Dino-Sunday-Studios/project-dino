@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://df51g7f5oxhjs"]
 
-[ext_resource type="Shader" uid="uid://cuf655skbissa" path="res://Shaders/Fish/fishvisual.gdshader" id="1_vtbe8"]
+[ext_resource type="Shader" uid="uid://dohrydbsdvii4" path="res://Shaders/Fish/fishvisual.gdshader" id="1_vtbe8"]
 [ext_resource type="Texture2D" uid="uid://fnrpdyrdbysq" path="res://Shaders/Water/water_normal_a.png" id="2_vtbe8"]
 
 [resource]

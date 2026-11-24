@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brbwwlx6gend3"]
 
-[ext_resource type="Texture2D" uid="uid://c1omce5m7k8d" path="res://Assets/crosshair.png" id="1_ngi2y"]
+[ext_resource type="Texture2D" uid="uid://dtndmkkffmoft" path="res://Assets/crosshair.png" id="1_ngi2y"]
 
 [node name="Crosshair" type="CanvasLayer" unique_id=768079159]
 

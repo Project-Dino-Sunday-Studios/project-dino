@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cutyhoopc3854"]
 
 [ext_resource type="Script" uid="uid://2miyf2amagsb" path="res://UI/main-interface.gd" id="1_8xht5"]
-[ext_resource type="Texture2D" uid="uid://db7vnbo7tt1fg" path="res://icon.webp" id="2_pdwi4"]
+[ext_resource type="Texture2D" uid="uid://bvotcq7sf2d3u" path="res://icon.webp" id="2_pdwi4"]
 
 [node name="GameplayInterface" type="CanvasLayer" unique_id=1194949549 node_paths=PackedStringArray("interaction_popup")]
 script = ExtResource("1_8xht5")
