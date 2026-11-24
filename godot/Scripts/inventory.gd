@@ -7,6 +7,22 @@ extends Control
 @onready var inventory_grid: InventoryGrid = $VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid
 const FISH_SCENE := preload("res://Scenes/fish.tscn")
 
+#function that plays when you successfully catch a fish
+func _catched_a_fish(fish : Fish.FishType):
+	show()
+	spawn_fish(fish)
+	
+func _complete_arrangement():
+	await get_tree().create_timer(1.0).timeout
+	hide()
+	Global.current_player_state = Global.PlayerState.TRAVERSE
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _ready() -> void:
+	Events.catch_fish.connect(_catched_a_fish)
+	Events.end_arranging_inventory.connect(_complete_arrangement)
+	hide()
+	pass
 
 #Debug Input
 func _unhandled_input(event: InputEvent) -> void:
