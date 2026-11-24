@@ -1,5 +1,5 @@
 class_name EnvironmentFish
-extends Interactable
+extends RigidBody3D
 
 enum FishState {
 	IDLE,
@@ -7,6 +7,7 @@ enum FishState {
 }
 
 @export var fish_boost: PackedScene
+@export var fish_boost_detector: Area3D
 
 var current_player: CharacterBody3D
 var reel_speed: float = 2
@@ -36,8 +37,8 @@ func _physics_process(delta: float) -> void:
 			global_position += -global_basis.x.normalized() * reel_strafe_speed * delta
 			rotation.y += deg_to_rad(20)
 	
-	if has_overlapping_areas():
-		var got_boost: FishBoost = get_overlapping_areas()[0]
+	if fish_boost_detector.has_overlapping_areas():
+		var got_boost: FishBoost = fish_boost_detector.get_overlapping_areas()[0]
 		got_boost.queue_free()
 		reel_speed *= boost_power
 	reel_speed = move_toward(reel_speed, default_reel_speed, boost_dampening*delta)

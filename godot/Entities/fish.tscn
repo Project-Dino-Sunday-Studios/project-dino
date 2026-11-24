@@ -9,12 +9,15 @@ size = Vector3(1.1749573, 0.62316895, 2.0396729)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
 
-[node name="Fish" type="Area3D" unique_id=1762001001]
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
+
+[node name="Fish" type="RigidBody3D" unique_id=1179937218 node_paths=PackedStringArray("fish_boost_detector")]
 collision_layer = 12
 collision_mask = 64
+gravity_scale = 0.0
 script = ExtResource("1_yxda8")
 fish_boost = ExtResource("2_jxsqi")
-metadata/_custom_type_script = "uid://do3qssxsmptyx"
+fish_boost_detector = NodePath("FishBoostDetector")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.030380249, -0.18841553, -0.2705431)
@@ -26,3 +29,11 @@ mesh = SubResource("BoxMesh_wnsl6")
 
 [node name="FishObject" parent="." unique_id=1846269564 instance=ExtResource("3_4w0c6")]
 transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
+
+[node name="FishBoostDetector" type="Area3D" parent="." unique_id=1576035406]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishBoostDetector" unique_id=702775784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.64955664)
+shape = SubResource("SphereShape3D_wnsl6")
