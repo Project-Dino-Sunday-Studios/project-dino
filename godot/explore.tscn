@@ -6,11 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1vg5q"]
 [ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_o0wup"]
 [ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_u3nf3"]
-[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/dodo transparent.png" id="7_slp6v"]
+[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://Assets/UI/Sprites/dodo transparent.png" id="7_slp6v"]
 [ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="8_cd0ni"]
 [ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/fishmonger transparent.png" id="9_umyxl"]
 [ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="10_rkjbj"]
 [ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_5lt7j"]
+[ext_resource type="PackedScene" uid="uid://b7b2tphrnqx24" path="res://Scenes/inventory.tscn" id="11_adj2x"]
 [ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="12_44q20"]
 [ext_resource type="Texture2D" uid="uid://qv14lti4i3j2" path="res://Assets/map.png" id="13_h3i4t"]
 
@@ -98,6 +99,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.38470894, -18.131386)
 
 [node name="Fish2" parent="." unique_id=2110615037 instance=ExtResource("5_o0wup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.627214, -0.16970807, -16.55051)
+
+[node name="Fish4" parent="." unique_id=23747499 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.627214, -0.16970807, -7.67338)
+
+[node name="Fish5" parent="." unique_id=1523492629 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.873009, -0.16970807, 1.1660252)
+
+[node name="Fish6" parent="." unique_id=553691670 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.066765, -0.16970807, 5.887102)
+
+[node name="Fish7" parent="." unique_id=558320708 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.823013, -0.16970998, -5.7741995)
 
 [node name="Fish3" parent="." unique_id=511261141 instance=ExtResource("5_o0wup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.529308, -0.16970807, 20.691696)
@@ -217,6 +230,8 @@ mesh = SubResource("TubeTrailMesh_c2xpr")
 [node name="w" type="MeshInstance3D" parent="w5" unique_id=2086993214]
 transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
 mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="Inventory" parent="." unique_id=1801302203 instance=ExtResource("11_adj2x")]
 
 [node name="InteractionMenu" parent="." unique_id=2017595401 instance=ExtResource("10_rkjbj")]
 

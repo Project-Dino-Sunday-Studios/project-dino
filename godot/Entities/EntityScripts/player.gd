@@ -51,8 +51,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed_multiplier = 1
 
-
-
 func _handle_fishing() -> void:
 	if not fishing_ray:
 		push_error("Fishing Ray is not assigned in the Player scene!")
@@ -62,3 +60,13 @@ func _handle_fishing() -> void:
 		if Input.is_action_just_pressed("fish"):
 			current_fish.activate_fishing(self, max_stamina, reel_strength, boost_power, boost_stamina)
 			Events.start_fishing.emit()
+	
+	#when finishing is complete
+	if fish_catcher.has_overlapping_areas():
+		#Global.current_player_state = Global.PlayerState.AIM
+		fish_catcher.get_overlapping_areas()[0].queue_free()
+		
+		Global.current_player_state = Global.PlayerState.ARRANGE_INVENTORY
+		var fish_type := Fish.FishType.values().pick_random() as Fish.FishType
+		Events.catch_fish.emit(fish_type)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

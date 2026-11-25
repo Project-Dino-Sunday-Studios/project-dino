@@ -1,0 +1,139 @@
+class_name InventoryGrid
+extends Control
+
+
+## Script for manage and drawing inventory grid
+
+@export var cell_size: int
+var grid_start_point: Vector2 = Vector2.ZERO
+
+var gridData: GridData = GridData.new()
+var grid_initialized: bool = false
+
+
+@export_category("ONLY FOR DEBUG")
+@export var test_cells : Array[Vector2i] = []
+
+func _ready() -> void:
+	pass
+
+
+#Calculate the correct grid's cell quantity
+func grid_cell_quantity_calc() -> Vector2i:
+	return Vector2i(
+			floor(size.x / cell_size),#Horizontal
+			floor(size.y / cell_size),#Vertical
+	)
+
+
+#Calculate the correct grid's dimension
+func grid_dimension_calc() -> Vector2:
+	var grid_cells := grid_cell_quantity_calc()
+	return Vector2(
+			grid_cells.x * cell_size,#Horizontal
+			grid_cells.y * cell_size,#Vertical
+	)
+
+
+#Calculate the grid's start point (for center the grid)
+func grid_origin_calc() -> Vector2:
+	var grid_dimension := grid_dimension_calc()
+	return Vector2(
+			(size.x - grid_dimension.x) / 2,#Horizontal centered
+			(size.y - grid_dimension.y) / 2,#Vertical centered
+	)
+
+
+#Setup drawing grid
+func drawing_grid() -> void:
+	#In first, we need to calculate grid dimension
+	var grid_cells = grid_cell_quantity_calc()
+	var grid_size = grid_dimension_calc()
+	var grid_origin = grid_origin_calc()
+	
+	#Drawing the vertical lines
+	for line in grid_cells.x + 1:
+		#Calc the x position of line
+		var x = grid_origin.x + (line * cell_size)
+		#Calc the line's start point
+		var start_point := Vector2(x, grid_origin.y)
+		#Calc the line's end point 
+		var end_point := Vector2(x, grid_origin.y + grid_size.y)
+		#Draw the line
+		draw_line(start_point, end_point, Color.BLACK, 3.0)
+	
+	#Drawing the horizontal lines
+	for line in grid_cells.y + 1:
+		#Calc the y position of line
+		var y = grid_origin.y + (line * cell_size)
+		#Calc the line's start point
+		var start_point := Vector2(grid_origin.x, y)
+		#Calc the line's end point
+		var end_point := Vector2(grid_origin.x + grid_size.x, y)
+		#Draw the line
+		draw_line(start_point, end_point, Color.BLACK, 3.0)
+
+
+#Draw grid
+func _draw() -> void:
+	var grid := grid_cell_quantity_calc() #Grid dimension (cells)
+
+	for rows in grid.y:
+		for columns in grid.x:
+			var cell := Vector2i(columns, rows)
+			
+			match gridData.get_cell(cell):
+				gridData.CellState.OCCUPIED:
+					var rect2 : Rect2 = Rect2(get_cell_position(cell) ,Vector2(cell_size, cell_size)) #Square red
+					draw_rect(rect2, Color.RED)
+	
+	drawing_grid()
+
+
+#Signal emitted when control node change size
+func _on_resized() -> void:
+	#In Vector2i x is columns and y is rows
+	var grid_size: Vector2i = grid_cell_quantity_calc()
+	
+	if size.x == 0 or size.y == 0: #Size grid control
+		return
+		
+	#Initialize grid data manager
+	if not grid_initialized:
+		gridData.initialize_grid(grid_size)
+		
+		grid_initialized = true
+	
+	queue_redraw()
+
+
+#Get cell position in grid
+func get_cell_position(cell: Vector2i) -> Vector2:
+	#x is columns and y rows
+	return Vector2(
+			cell.x * cell_size + grid_origin_calc().x,
+			cell.y * cell_size + grid_origin_calc().y,
+	)
+
+
+#Returns the center of the given cell in global coordinates.
+func get_global_cell_center(cell: Vector2i) -> Vector2:
+	#Calculating local coordinates
+	var cell_position := get_cell_position(cell)
+	var local_center := Vector2(
+			cell_position.x + cell_size / 2.0,
+			cell_position.y + cell_size / 2.0
+			)
+	
+	#Return global coordinates
+	return get_global_transform() * local_center
+
+
+#Calculating the fish's cell
+func global_to_cell(global_point: Vector2) -> Vector2i:
+	var local_point := get_global_transform().affine_inverse() * global_point
+	
+	return Vector2i(
+		floori((local_point.x - grid_origin_calc().x) / cell_size),
+		floori((local_point.y - grid_origin_calc().y) / cell_size),
+	)
