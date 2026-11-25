@@ -12,8 +12,11 @@ enum FishState {
 @export var fish_boost: PackedScene
 @export var fish_boost_detector: Area3D
 @export var capture_detector: Area3D
+@export var fight_timer: Timer
 @export var fishing_UI: CanvasLayer
 @export var stamina_bar: ProgressBar
+
+@export var fish_data: FishData
 
 var current_player: CharacterBody3D
 var target_position: Vector3
@@ -21,6 +24,7 @@ var direction_to_target_position: Vector3
 
 var boost_interval: float = 2.5
 var boost_spacing: float = 2.3
+var boost_horizontal_variance: float = 4.5
 var constant_velocity_dampening: float = .7
 var stamina_drain_rate = 20
 
@@ -46,9 +50,10 @@ func _ready() -> void:
 	
 	capture_detector.area_entered.connect(
 		func(_fish_catcher):
-			Global.current_player_state = Global.PlayerState.AIM
 			end_fishing()
 	)
+	
+	fight_timer.timeout.connect(_fight_back)
 
 
 func _physics_process(delta: float) -> void:
@@ -72,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		global_position = global_position.lerp(global_position - Vector3(0,10,0), delta*1.5)
 		fish_mesh.lod_bias = lerp(fish_mesh.lod_bias, 0.0, delta*40)
 		await get_tree().create_timer(.25).timeout
-		queue_free()
+		end_fishing()
 		
 
 
@@ -97,6 +102,15 @@ func _change_stamina_bar(delta: float) -> void:
 func _set_up_UI() -> void:
 	stamina_bar.max_value = max_stamina
 
+
+func _fight_back() -> void:
+	# How often this is checked depends on the fish_data.fight_check_frequency
+	if randf_range(1, 100) < fish_data.erraticism:
+		var fight_angle: float = randf_range(fish_data.min_fight_angle, fish_data.max_fight_angle)
+		var fight_direction: Vector3 = direction_to_target_position.rotated(Vector3.UP, deg_to_rad(fight_angle))
+		apply_central_impulse(fight_direction * fish_data.fight_power)
+
+
 func activate_boost() -> void:
 	if boost_power == -1 or boost_stamina == -1:
 		assert(false, "One of Fish's boost variables was never set from player's boost power!")
@@ -111,6 +125,8 @@ func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_s
 	current_state = FishState.FISHING
 	Global.current_player_state = Global.PlayerState.FISH
 	capture_detector.process_mode = Node.PROCESS_MODE_INHERIT
+	fight_timer.wait_time = fish_data.fight_check_frequency
+	fight_timer.start()
 	fishing_UI.visible = true
 	current_player = player
 	max_stamina = player_max_stamina
@@ -131,9 +147,10 @@ func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_s
 		var boost: FishBoost = fish_boost.instantiate()
 		add_child(boost)
 		boost.global_position = global_position + (-global_basis.z * i * boost_spacing)
-		boost.global_position += global_basis.x.normalized() * randf_range(-3, 3)
+		boost.global_position += global_basis.x.normalized() * randf_range(-boost_horizontal_variance, boost_horizontal_variance)
 
 
 func end_fishing() -> void:
+	Global.current_player_state = Global.PlayerState.AIM
 	queue_free()
 	# Signal for after fishing
