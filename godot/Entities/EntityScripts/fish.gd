@@ -34,6 +34,7 @@ var current_stamina: float = -1
 var effective_reel_power: float = -1
 var boost_power: float = -1
 var boost_stamina: float = -1
+var player_boost_cost: float = -1
 
 
 @onready var current_state: FishState = FishState.IDLE
@@ -71,6 +72,9 @@ func _physics_process(delta: float) -> void:
 			global_position += global_basis.x.normalized() * effective_reel_power * delta
 		if Input.is_action_pressed("move_right"):
 			global_position += -global_basis.x.normalized() * effective_reel_power * delta
+		
+		if Input.is_action_just_pressed("fish"):
+			_manual_boost()
 		
 		_change_stamina_bar(delta)
 	
@@ -112,6 +116,11 @@ func _fight_back() -> void:
 		apply_central_impulse(fight_direction * fish_data.fight_power)
 
 
+func _manual_boost() -> void:
+	apply_central_impulse(direction_to_target_position * boost_power)
+	current_stamina -= player_boost_cost
+
+
 func activate_boost() -> void:
 	if boost_power == -1 or boost_stamina == -1:
 		assert(false, "One of Fish's boost variables was never set from player's boost power!")
@@ -119,7 +128,7 @@ func activate_boost() -> void:
 	current_stamina += boost_stamina
 
 
-func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_strength: float, boost_strength: float, boost_stamina_gain: float) -> void:
+func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_strength: float, boost_strength: float, boost_stamina_gain: float, manual_boost_cost: float) -> void:
 	if current_state == FishState.FISHING:
 		return
 	
@@ -134,6 +143,7 @@ func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_s
 	current_stamina = max_stamina
 	boost_power = boost_strength
 	boost_stamina = boost_stamina_gain
+	player_boost_cost = manual_boost_cost
 	
 	_set_up_UI()
 	effective_reel_power = reel_strength * 1/mass ## Make effective reel power inversely proportional to fish's mass
