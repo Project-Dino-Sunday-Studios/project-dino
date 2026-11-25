@@ -8,9 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/dodo transparent.png" id="8_efxa6"]
-[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="9_dg77c"]
-[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/fishmonger transparent.png" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_dg77c"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
@@ -31,6 +28,7 @@ size = Vector3(6, 5, 2)
 [node name="Main" type="Node3D" unique_id=1088817240]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
 shape = SubResource("WorldBoundaryShape3D_wnsl6")
@@ -66,7 +64,6 @@ transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153,
 [node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029289484, 0)
 collision_layer = 16
-collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
 [node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="8" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
@@ -96,14 +93,15 @@ shape = SubResource("SphereShape3D_wnsl6")
 
 [node name="Npc" parent="." unique_id=833796758 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, 0)
-character_name = "Dodo Farmer"
-character_sprite = ExtResource("8_efxa6")
-background_sprite = ExtResource("9_dg77c")
+character_name = ""
+character_sprite = null
+background_sprite = null
 
 [node name="Npc2" parent="." unique_id=525867179 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, -6.3838344)
-character_name = "Fishmonger"
-character_sprite = ExtResource("10_ycdy4")
+character_name = ""
+character_sprite = null
+background_sprite = null
 
 [node name="InteractionMenu" parent="." unique_id=2017595401 instance=ExtResource("7_272bh")]
 

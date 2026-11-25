@@ -22,17 +22,17 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact") && isPlayerInside:
 		var npc = NPCData.new(character_name, character_sprite, background_sprite)
 		Events.start_interaction.emit(npc)
 		Events.toggle_interacton_range.emit(false)
 		pass
 
-func _on_interaction_area_body_entered(body: Node3D) -> void:
+func _on_interaction_area_body_entered(_body: Node3D) -> void:
 	isPlayerInside = true
 	Events.toggle_interacton_range.emit(true)
 
-func _on_interaction_area_body_exited(body: Node3D) -> void:
+func _on_interaction_area_body_exited(_body: Node3D) -> void:
 	isPlayerInside = false
 	Events.toggle_interacton_range.emit(false)

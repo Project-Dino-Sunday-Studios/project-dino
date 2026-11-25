@@ -17,8 +17,8 @@ config/icon="uid://db7vnbo7tt1fg"
 
 [autoload]
 
-Events="*uid://qqy27laosuyw"
-Global="*uid://dubvaidd8qs1d"
+Events="*uid://giutb21xussj"
+Global="*uid://cds4aa07w0iou"
 
 [display]
 
@@ -78,10 +78,10 @@ interact={
 [layer_names]
 
 3d_physics/layer_1="environment"
-3d_physics/layer_3="Fish(Reeling)"
 3d_physics/layer_4="Interactable"
 3d_physics/layer_5="player"
 3d_physics/layer_7="Fish boost"
+3d_physics/layer_8="Fish Capturer"
 
 [physics]
 

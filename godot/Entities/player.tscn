@@ -340,7 +340,7 @@ height = 0.053
 [sub_resource type="SphereMesh" id="SphereMesh_oxtoc"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
-radius = 1.0
+radius = 0.65
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oxtoc"]
 graph_offset = Vector2(-47.53015, 217.04648)
@@ -348,6 +348,8 @@ nodes/output/position = Vector2(520, 140)
 
 [node name="Player" type="CharacterBody3D" unique_id=1369565701 node_paths=PackedStringArray("model", "fish_catcher")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 144
+collision_mask = 0
 script = ExtResource("1_tcnsb")
 model = NodePath("Model")
 fish_catcher = NodePath("FishCatcher")
@@ -883,8 +885,8 @@ spring_length = 7.0
 [node name="DetachedCameraLocation" type="Marker3D" parent="DetachedCameraPivot/SpringArm3D" unique_id=1424784790]
 
 [node name="FishCatcher" type="Area3D" parent="." unique_id=1307468276]
-collision_layer = 0
-collision_mask = 4
+collision_layer = 128
+collision_mask = 0
 
 [node name="FishCatcherCollision" type="CollisionShape3D" parent="FishCatcher" unique_id=586154554]
 shape = SubResource("SphereShape3D_wnsl6")

@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dmp6ap3tuv1dq" path="res://Shaders/Fish/fish-object.tscn" id="3_4w0c6"]
 [ext_resource type="Material" uid="uid://df51g7f5oxhjs" path="res://Shaders/Fish/3Dfish_mat.tres" id="3_jdfaa"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(1.454373, 1.2842407, 1.3773241)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgekb"]
 resource_name = "openPBR_shader1"
 vertex_color_use_as_albedo = true
@@ -43,33 +46,29 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6r4y0")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
-size = Vector3(1.454373, 1.2842407, 1.3773241)
-
-[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
 
-[node name="Fish" type="RigidBody3D" unique_id=1179937218 node_paths=PackedStringArray("fish_boost_detector")]
-collision_layer = 12
+[sub_resource type="SphereShape3D" id="SphereShape3D_yddjp"]
+radius = 1.0437924
+
+[node name="Fish" type="RigidBody3D" unique_id=1179937218 node_paths=PackedStringArray("reel_collision", "fish_boost_detector", "capture_detector")]
+collision_layer = 8
 collision_mask = 64
 gravity_scale = 0.0
 script = ExtResource("1_yxda8")
+reel_collision = NodePath("ReelCollision")
 fish_boost = ExtResource("2_jxsqi")
 fish_boost_detector = NodePath("FishBoostDetector")
+capture_detector = NodePath("CaptureDetector")
+
+[node name="ReelCollision" type="CollisionShape3D" parent="." unique_id=1009876208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016775548, -0.22188163, 0.0020432472)
+shape = SubResource("BoxShape3D_272bh")
 
 [node name="3Dfish" type="MeshInstance3D" parent="." unique_id=275358364]
 transform = Transform3D(16.615, 0, 0, 0, 16.615, 0, 0, 0, 16.615, 0, 0.12660885, 0)
 material_override = ExtResource("3_jdfaa")
 mesh = SubResource("ArrayMesh_wq1h2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016775548, -0.22188163, 0.0020432472)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=82782438]
-visible = false
-mesh = SubResource("BoxMesh_wnsl6")
 
 [node name="FishObject" parent="." unique_id=1846269564 instance=ExtResource("3_4w0c6")]
 transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
@@ -80,5 +79,12 @@ collision_layer = 0
 collision_mask = 64
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FishBoostDetector" unique_id=702775784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.64955664)
 shape = SubResource("SphereShape3D_wnsl6")
+
+[node name="CaptureDetector" type="Area3D" parent="." unique_id=1291486493]
+process_mode = 4
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaptureDetector" unique_id=1267004621]
+shape = SubResource("SphereShape3D_yddjp")
