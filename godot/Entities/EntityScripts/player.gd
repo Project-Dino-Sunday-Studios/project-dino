@@ -51,6 +51,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed_multiplier = 1
 
+
 func _handle_fishing() -> void:
 	if not fishing_ray:
 		push_error("Fishing Ray is not assigned in the Player scene!")

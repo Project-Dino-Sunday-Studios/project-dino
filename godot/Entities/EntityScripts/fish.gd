@@ -24,7 +24,7 @@ var direction_to_target_position: Vector3
 
 var boost_interval: float = 2.5
 var boost_spacing: float = 2.3
-var boost_horizontal_variance: float = 4.5
+var boost_horizontal_variance: float = 3.5
 var constant_velocity_dampening: float = .7
 var stamina_drain_rate = 20
 
@@ -54,6 +54,7 @@ func _ready() -> void:
 	)
 	
 	fight_timer.timeout.connect(_fight_back)
+	mass = fish_data.mass
 
 
 func _physics_process(delta: float) -> void:
