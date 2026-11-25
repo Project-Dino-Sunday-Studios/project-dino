@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bygxfpeoefocf"
-path.s3tc="res://.godot/imported/chef_render.png-8b7032633ef9eed766993cbb7c539e05.s3tc.ctex"
+uid="uid://ccvvv7rnuix3n"
+path.s3tc="res://.godot/imported/fishmonger transparent.png-9f4dde3d2f90182708062a080f9b9955.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://UI/Art/chef_render.png"
-dest_files=["res://.godot/imported/chef_render.png-8b7032633ef9eed766993cbb7c539e05.s3tc.ctex"]
+source_file="res://UI/Art/Sprites/fishmonger transparent.png"
+dest_files=["res://.godot/imported/fishmonger transparent.png-9f4dde3d2f90182708062a080f9b9955.s3tc.ctex"]
 
 [params]
 

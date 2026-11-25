@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/dodo transparent.png" id="8_efxa6"]
+[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/Sprites/dodo transparent.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="9_dg77c"]
-[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/fishmonger transparent.png" id="10_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/Sprites/fishmonger transparent.png" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_dg77c"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]

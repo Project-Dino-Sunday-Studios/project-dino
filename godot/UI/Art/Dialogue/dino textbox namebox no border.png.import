@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdk0qodv8m0r5"
-path="res://.godot/imported/chef_and_oviraptor.png-738509b55b757df19952c6631f0fa28c.ctex"
+uid="uid://cjgu0d1p0nobc"
+path="res://.godot/imported/dino textbox namebox no border.png-98ba68693a1523229a2da9dd56eb8d86.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/chef_and_oviraptor.png"
-dest_files=["res://.godot/imported/chef_and_oviraptor.png-738509b55b757df19952c6631f0fa28c.ctex"]
+source_file="res://UI/Art/Dialogue/dino textbox namebox no border.png"
+dest_files=["res://.godot/imported/dino textbox namebox no border.png-98ba68693a1523229a2da9dd56eb8d86.ctex"]
 
 [params]
 
