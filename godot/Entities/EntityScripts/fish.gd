@@ -151,6 +151,12 @@ func activate_fishing(player: CharacterBody3D, player_max_stamina: float, reel_s
 
 
 func end_fishing() -> void:
-	Global.current_player_state = Global.PlayerState.AIM
+	if current_state != FishState.FAIL:
+		Global.current_player_state = Global.PlayerState.ARRANGE_INVENTORY
+		var fish_type := Fish.FishType.values().pick_random() as Fish.FishType
+		Events.catch_fish.emit(fish_type)
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	else:
+		Global.current_player_state = Global.PlayerState.AIM
 	queue_free()
 	# Signal for after fishing
