@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcoygfjsmf7xe"]
 
-[ext_resource type="Texture2D" uid="uid://cv11dij8wt7xr" path="res://UI/Art/fishmonger_background.png" id="1_b6cny"]
-[ext_resource type="Script" uid="uid://cqt5tkfct1b1d" path="res://UI/interact-menu.gd" id="1_t12xj"]
+[ext_resource type="Texture2D" uid="uid://dtc5bfcj2ea3t" path="res://UI/Art/fishmonger_background.png" id="1_b6cny"]
+[ext_resource type="Script" uid="uid://cpys68fag0jxe" path="res://UI/interact-menu.gd" id="1_t12xj"]
 [ext_resource type="Material" uid="uid://bhup4bkdr263v" path="res://Shaders/UI/characterShader.tres" id="3_o6g0w"]
 [ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/Sprites/fishmonger transparent.png" id="3_t12xj"]
 [ext_resource type="Texture2D" uid="uid://cdkrcyf7oqw1g" path="res://UI/Art/Dialogue/dino textbox no namebox.png" id="5_gnfoq"]

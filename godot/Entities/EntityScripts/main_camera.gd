@@ -65,6 +65,11 @@ func _physics_process(delta: float) -> void:
 			if crosshair:
 				crosshair.visible = false
 			fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+		Global.PlayerState.ARRANGE_INVENTORY:
+			fov = 75
+			if crosshair:
+				crosshair.visible = false
+			fishing_ray.process_mode = ProcessMode.PROCESS_MODE_DISABLED
 	
 	var tween: Tween = create_tween()
 	if fishing_ray.is_colliding() and fishing_ray.get_collider() is EnvironmentFish:
