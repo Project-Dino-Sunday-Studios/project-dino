@@ -47,24 +47,24 @@ collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
 [node name="Skeleton3D" parent="Player2/Model/Spino-swim-anim/rig/global_move/joints" parent_id_path=PackedInt32Array(1369565701, 60396927) index="0" unique_id=296219281]
-bones/0/position = Vector3(1.2686864, -9.64531, -28.616566)
-bones/0/rotation = Quaternion(-0.6957884, 0.025954217, 0.70663035, -0.1260096)
-bones/13/position = Vector3(-0.87943745, -9.029784, -0.012892041)
-bones/13/rotation = Quaternion(0.057178233, 0.06173484, -0.74265623, 0.6643652)
-bones/14/rotation = Quaternion(-0.0035532822, -0.08645892, -0.040909186, 0.9954089)
-bones/15/position = Vector3(8.034517, -3.6119468e-06, -0.65040326)
-bones/15/rotation = Quaternion(-0.0051136008, 0.073344655, 0.06936309, 0.9948785)
-bones/28/rotation = Quaternion(-0.0026829694, -0.03220491, -0.015468362, 0.99935806)
-bones/29/rotation = Quaternion(-0.0021453425, 0.1387291, 0.015312896, 0.9902097)
-bones/30/rotation = Quaternion(-0.017012062, -0.14893371, -0.11218851, 0.9823152)
-bones/32/position = Vector3(0.65357244, -2.9116726, -0.000116524185)
-bones/32/rotation = Quaternion(-0.70704216, 0.009569601, -0.009569559, 0.707042)
-bones/52/position = Vector3(-1.37873, 8.082366, 2.4408696)
-bones/52/rotation = Quaternion(0.7298184, 0.6685756, 0.101913325, -0.09992784)
-bones/53/rotation = Quaternion(-0.0016599777, 0.034242544, 0.04839214, 0.99824)
-bones/54/rotation = Quaternion(0.008864583, -0.043028977, -0.012798091, 0.99895257)
-bones/55/rotation = Quaternion(-0.000792618, 0.1077199, 0.0073150625, 0.9941541)
-bones/56/rotation = Quaternion(-0.0051576537, -0.168103, -0.030230269, 0.9852924)
+bones/0/position = Vector3(-1.0329838, -9.674718, -28.610117)
+bones/0/rotation = Quaternion(-0.7062228, 0.11674778, 0.69740236, -0.03534685)
+bones/13/position = Vector3(-0.8794385, -9.030039, 0.010863086)
+bones/13/rotation = Quaternion(-0.04599701, -0.04975916, -0.74356055, 0.66522634)
+bones/14/rotation = Quaternion(0.0030533292, 0.07429427, -0.040949523, 0.9963906)
+bones/15/position = Vector3(8.034516, -2.5753982e-06, 1.0138063)
+bones/15/rotation = Quaternion(0.0073693325, -0.10569876, 0.06915982, 0.99196297)
+bones/28/rotation = Quaternion(-0.0017546326, 0.020372178, -0.020440865, 0.999582)
+bones/29/rotation = Quaternion(0.0010139844, -0.065569155, 0.0154291615, 0.9977282)
+bones/30/rotation = Quaternion(0.014839389, 0.1253004, -0.11672142, 0.9851171)
+bones/32/position = Vector3(0.6535665, -2.9118466, -8.12846e-05)
+bones/32/rotation = Quaternion(-0.70708585, 0.0054559098, -0.005455873, 0.70708567)
+bones/52/position = Vector3(-1.3787308, 8.140287, -1.9873929)
+bones/52/rotation = Quaternion(0.7325083, 0.671756, -0.07688829, 0.07914391)
+bones/53/rotation = Quaternion(0.0024338823, -0.050206285, 0.04835936, 0.99756444)
+bones/54/rotation = Quaternion(0.009383361, -0.0044296915, -0.013174586, 0.9998594)
+bones/55/rotation = Quaternion(0.0010030759, -0.13632391, 0.007289187, 0.99063706)
+bones/56/rotation = Quaternion(0.004227627, 0.13779067, -0.030374285, 0.9899866)
 
 [node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="5" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
 game_camera = NodePath("../../../Camera3D")
@@ -122,7 +122,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.38470894, -18.131386)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.627214, -0.16970807, -16.55051)
 
 [node name="Fish3" parent="." unique_id=511261141 instance=ExtResource("5_o0wup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.529308, -0.16970807, 20.691696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.00301, -0.16970807, 4.6706905)
+
+[node name="Fish4" parent="." unique_id=384778642 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.912699, -0.16970807, -8.317902)
+
+[node name="Fish5" parent="." unique_id=166815203 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.74881, -0.16970807, -3.9378033)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=381503828]
 collision_layer = 0
