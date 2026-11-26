@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1vg5q"]
 [ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_o0wup"]
 [ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_u3nf3"]
-[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/Sprites/dodo transparent.png" id="7_slp6v"]
-[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="8_cd0ni"]
-[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/Sprites/fishmonger transparent.png" id="9_umyxl"]
+[ext_resource type="Texture2D" uid="uid://b01muawb6vunu" path="res://Assets/UI/CharacterSprites/dodo transparent.png" id="7_1vg5q"]
+[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://Assets/UI/Backgrounds/chef_background.png" id="8_cd0ni"]
+[ext_resource type="Texture2D" uid="uid://coas4wrw82pfo" path="res://Assets/UI/CharacterSprites/fishmonger transparent.png" id="9_umyxl"]
+[ext_resource type="Texture2D" uid="uid://dtc5bfcj2ea3t" path="res://Assets/UI/Backgrounds/fishmonger_background.png" id="10_o0wup"]
 [ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="10_rkjbj"]
 [ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_5lt7j"]
 [ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="12_44q20"]
 [ext_resource type="Texture2D" uid="uid://qv14lti4i3j2" path="res://Assets/map.png" id="13_h3i4t"]
+[ext_resource type="PackedScene" uid="uid://b7b2tphrnqx24" path="res://Scenes/inventory.tscn" id="14_adj2x"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
 
@@ -44,7 +46,27 @@ collision_layer = 16
 collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
-[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="8" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
+[node name="Skeleton3D" parent="Player2/Model/Spino-swim-anim/rig/global_move/joints" parent_id_path=PackedInt32Array(1369565701, 60396927) index="0" unique_id=296219281]
+bones/0/position = Vector3(1.2686864, -9.64531, -28.616566)
+bones/0/rotation = Quaternion(-0.6957884, 0.025954217, 0.70663035, -0.1260096)
+bones/13/position = Vector3(-0.87943745, -9.029784, -0.012892041)
+bones/13/rotation = Quaternion(0.057178233, 0.06173484, -0.74265623, 0.6643652)
+bones/14/rotation = Quaternion(-0.0035532822, -0.08645892, -0.040909186, 0.9954089)
+bones/15/position = Vector3(8.034517, -3.6119468e-06, -0.65040326)
+bones/15/rotation = Quaternion(-0.0051136008, 0.073344655, 0.06936309, 0.9948785)
+bones/28/rotation = Quaternion(-0.0026829694, -0.03220491, -0.015468362, 0.99935806)
+bones/29/rotation = Quaternion(-0.0021453425, 0.1387291, 0.015312896, 0.9902097)
+bones/30/rotation = Quaternion(-0.017012062, -0.14893371, -0.11218851, 0.9823152)
+bones/32/position = Vector3(0.65357244, -2.9116726, -0.000116524185)
+bones/32/rotation = Quaternion(-0.70704216, 0.009569601, -0.009569559, 0.707042)
+bones/52/position = Vector3(-1.37873, 8.082366, 2.4408696)
+bones/52/rotation = Quaternion(0.7298184, 0.6685756, 0.101913325, -0.09992784)
+bones/53/rotation = Quaternion(-0.0016599777, 0.034242544, 0.04839214, 0.99824)
+bones/54/rotation = Quaternion(0.008864583, -0.043028977, -0.012798091, 0.99895257)
+bones/55/rotation = Quaternion(-0.000792618, 0.1077199, 0.0073150625, 0.9941541)
+bones/56/rotation = Quaternion(-0.0051576537, -0.168103, -0.030230269, 0.9852924)
+
+[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="5" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
 game_camera = NodePath("../../../Camera3D")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
@@ -112,13 +134,14 @@ shape = SubResource("SphereShape3D_wnsl6")
 [node name="Npc" parent="." unique_id=833796758 instance=ExtResource("6_u3nf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, 0)
 character_name = "Dodo Farmer"
-character_sprite = ExtResource("7_slp6v")
+character_sprite = ExtResource("7_1vg5q")
 background_sprite = ExtResource("8_cd0ni")
 
 [node name="Npc2" parent="." unique_id=525867179 instance=ExtResource("6_u3nf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, -6.3838344)
 character_name = "Fishmonger"
 character_sprite = ExtResource("9_umyxl")
+background_sprite = ExtResource("10_o0wup")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1596978901]
 transform = Transform3D(12.71, 0, 0, 0, -5.555718e-07, 12.71, 0, -12.71, -5.555718e-07, -16.481491, -5.8710136, -37.794174)
@@ -223,6 +246,8 @@ mesh = SubResource("TubeTrailMesh_3c61y")
 [node name="GameplayInterface" parent="." unique_id=1194949549 instance=ExtResource("11_5lt7j")]
 
 [node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("12_44q20")]
+
+[node name="Inventory" parent="." unique_id=1801302203 instance=ExtResource("14_adj2x")]
 
 [editable path="Player2"]
 [editable path="Camera3D/Crosshair"]

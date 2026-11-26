@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chjqmtlksy6hi"
-path="res://.godot/imported/Callichimaera.png-f08ee2925ff539e8a67d57e0998328ec.ctex"
+uid="uid://duy2xd1vfguv8"
+path="res://.godot/imported/dino textbox namebox top border.png-ccf82b1c6126d13ca5af9081ee64078b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/Callichimaera.png"
-dest_files=["res://.godot/imported/Callichimaera.png-f08ee2925ff539e8a67d57e0998328ec.ctex"]
+source_file="res://Assets/UI/Dialogue/dino textbox namebox top border.png"
+dest_files=["res://.godot/imported/dino textbox namebox top border.png-ccf82b1c6126d13ca5af9081ee64078b.ctex"]
 
 [params]
 

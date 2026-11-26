@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6kgatcjsiaqk"
-path="res://.godot/imported/Trilobite.png-003b3ed7e205c1b7a347c1707eb58648.ctex"
+uid="uid://dlusuwt33350a"
+path="res://.godot/imported/osteolepis.png-ddb8eab9c5f92a71d1daf86fd409a5d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/Trilobite.png"
-dest_files=["res://.godot/imported/Trilobite.png-003b3ed7e205c1b7a347c1707eb58648.ctex"]
+source_file="res://Assets/UI/Fish/osteolepis.png"
+dest_files=["res://.godot/imported/osteolepis.png-ddb8eab9c5f92a71d1daf86fd409a5d0.ctex"]
 
 [params]
 

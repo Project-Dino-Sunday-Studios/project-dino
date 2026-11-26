@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="7_272bh"]
-[ext_resource type="Texture2D" uid="uid://cunitwtuolxab" path="res://UI/Art/Sprites/dodo transparent.png" id="8_efxa6"]
-[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://UI/Art/chef_background.png" id="9_dg77c"]
-[ext_resource type="Texture2D" uid="uid://ccvvv7rnuix3n" path="res://UI/Art/Sprites/fishmonger transparent.png" id="10_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://b01muawb6vunu" path="res://Assets/UI/CharacterSprites/dodo transparent.png" id="7_dg77c"]
+[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://Assets/UI/Backgrounds/chef_background.png" id="9_dg77c"]
+[ext_resource type="Texture2D" uid="uid://coas4wrw82pfo" path="res://Assets/UI/CharacterSprites/fishmonger transparent.png" id="9_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_dg77c"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
@@ -69,7 +69,7 @@ collision_layer = 16
 collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
-[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="8" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
+[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="5" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
 game_camera = NodePath("../../../Camera3D")
 
 [node name="Wall" type="StaticBody3D" parent="." unique_id=1134548507]
@@ -97,13 +97,13 @@ shape = SubResource("SphereShape3D_wnsl6")
 [node name="Npc" parent="." unique_id=833796758 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, 0)
 character_name = "Dodo Farmer"
-character_sprite = ExtResource("8_efxa6")
+character_sprite = ExtResource("7_dg77c")
 background_sprite = ExtResource("9_dg77c")
 
 [node name="Npc2" parent="." unique_id=525867179 instance=ExtResource("6_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, -6.3838344)
 character_name = "Fishmonger"
-character_sprite = ExtResource("10_ycdy4")
+character_sprite = ExtResource("9_ycdy4")
 
 [node name="InteractionMenu" parent="." unique_id=2017595401 instance=ExtResource("7_272bh")]
 

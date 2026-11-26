@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsy0v5tywmhnr"
-path="res://.godot/imported/dino textbox namebox bottom border.png-d1b4b315ab3e714bc27b182bbb946a0c.ctex"
+uid="uid://b01muawb6vunu"
+path="res://.godot/imported/dodo transparent.png-04a6fd5c4e73683e6baf715156ab5c24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/Dialogue/dino textbox namebox bottom border.png"
-dest_files=["res://.godot/imported/dino textbox namebox bottom border.png-d1b4b315ab3e714bc27b182bbb946a0c.ctex"]
+source_file="res://Assets/UI/CharacterSprites/dodo transparent.png"
+dest_files=["res://.godot/imported/dodo transparent.png-04a6fd5c4e73683e6baf715156ab5c24.ctex"]
 
 [params]
 
