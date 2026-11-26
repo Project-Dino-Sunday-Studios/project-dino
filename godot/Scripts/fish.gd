@@ -237,6 +237,17 @@ func get_cells_at_anchor(anchor: Vector2i) -> Array[Vector2i]:
 	return cells
 
 
+#Function to release the free cells
+func release_inventory_cells() -> bool:
+	#If cells are occupied return false
+	if not inventory_grid.gridData.clear_cells(occupied_cells):
+		return false
+	
+	#If cells are free clear array and redraw the grid and return true
+	occupied_cells.clear()
+	inventory_grid.queue_redraw()
+	return true
+
 func _on_body_entered(body: Node) -> void:
 	if not freeze:
 		if body.name == "InventoryFloor" or body is Fish:
