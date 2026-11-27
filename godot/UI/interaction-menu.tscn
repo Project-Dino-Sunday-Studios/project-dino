@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dtc5bfcj2ea3t" path="res://Assets/UI/Backgrounds/fishmonger_background.png" id="1_b6cny"]
 [ext_resource type="Script" uid="uid://cpys68fag0jxe" path="res://UI/interact-menu.gd" id="1_t12xj"]
+[ext_resource type="Material" uid="uid://dh1v6t62dotx1" path="res://Shaders/UI/interact_background_distortion.tres" id="2_sv6iq"]
 [ext_resource type="Material" uid="uid://bhup4bkdr263v" path="res://Shaders/UI/characterShader.tres" id="3_o6g0w"]
 [ext_resource type="Texture2D" uid="uid://coas4wrw82pfo" path="res://Assets/UI/CharacterSprites/fishmonger transparent.png" id="3_t12xj"]
 [ext_resource type="Texture2D" uid="uid://cdkrcyf7oqw1g" path="res://Assets/UI/Dialogue/dino textbox no namebox.png" id="5_gnfoq"]
@@ -111,9 +112,49 @@ tracks/6/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_sv6iq"]
+resource_name = "close"
+length = 0.36666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBox:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 20), Vector2(-900, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DialogueBox:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1028, 751), Vector2(2000, 751)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChefRender:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1317, 598.99994), Vector2(2400, 599)]
+}
+
 [sub_resource type="Animation" id="Animation_gnfoq"]
 resource_name = "open"
-length = 2.0
+length = 0.8666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -202,6 +243,7 @@ tracks/6/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rsmka"]
 _data = {
 &"RESET": SubResource("Animation_o6g0w"),
+&"close": SubResource("Animation_sv6iq"),
 &"open": SubResource("Animation_gnfoq")
 }
 
@@ -215,6 +257,7 @@ animator = NodePath("AnimationPlayer")
 
 [node name="Background" type="TextureRect" parent="." unique_id=972349466]
 visible = false
+material = ExtResource("2_sv6iq")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -233,7 +276,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -920.0
 offset_top = -520.0
-offset_right = -23.00354
+offset_right = -23.002197
 offset_bottom = 520.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -440,8 +483,8 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -892.0
 offset_top = 211.0
-offset_right = -41.99292
-offset_bottom = 510.99097
+offset_right = -41.98474
+offset_bottom = 510.99182
 grow_horizontal = 0
 grow_vertical = 2
 size_flags_horizontal = 3

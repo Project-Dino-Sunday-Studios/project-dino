@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bg4x7dbhic0v3" path="res://Scripts/inventory_grid.gd" id="1_wdn4f"]
 [ext_resource type="Script" uid="uid://40mj56ad71gi" path="res://Scripts/inventory.gd" id="1_yxepq"]
-[ext_resource type="PackedScene" uid="uid://bde8tcm14wnhm" path="res://Scenes/fish.tscn" id="2_k5gp2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qurq7"]
 size = Vector2(900, 20)
@@ -82,9 +81,12 @@ position = Vector2(1411, 951)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryFloor" unique_id=1045577263]
 shape = SubResource("RectangleShape2D_qurq7")
 
-[node name="FishTest" parent="." unique_id=1764849412 node_paths=PackedStringArray("inventory_grid") instance=ExtResource("2_k5gp2")]
-visible = false
-position = Vector2(468, 843)
-inventory_grid = NodePath("../VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid")
+[node name="TransparencyBackground" type="Panel" parent="." unique_id=1818865756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="resized" from="VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid" to="VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid" method="_on_resized"]

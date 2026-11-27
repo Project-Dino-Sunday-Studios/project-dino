@@ -18,7 +18,7 @@ enum FishType {
 
 @onready var collision: CollisionPolygon2D = $CollisionPolygon2D
 
-
+var can_drag: bool = false #if you are able to drag fish
 var is_dragging: bool = false #State of dragging fish
 var drag_offset: Vector2 = Vector2.ZERO #Fish center position - mouse position
 var landing_pending: bool = false #Recording collision with another object
@@ -167,7 +167,9 @@ func _input(event: InputEvent) -> void:
 	#Block input when fish is correctly placed
 	if not occupied_cells.is_empty():
 		return
-	
+	#Block input if you aren't allowed to drag fish
+	if not can_drag:
+		return
 	#Rotation fish
 	if not freeze:
 		if event.is_action_pressed("rotate_fish_ccw"):

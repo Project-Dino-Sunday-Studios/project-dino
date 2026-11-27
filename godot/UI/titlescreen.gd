@@ -5,7 +5,6 @@ var current_tween: Tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
 	_fade(true, 0.5)
 
 
@@ -17,6 +16,7 @@ func _fade(type: bool, dur: float):
 	var fade_tween = create_tween()
 	current_tween = fade_tween
 	if (type):#fade in
+		fade_screen.visible = true
 		fade_screen.modulate.a = 1.0
 		fade_tween.tween_property(fade_screen, "modulate:a", 0.0, dur)
 		await fade_tween.finished

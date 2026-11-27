@@ -11,7 +11,7 @@ extends CanvasLayer
 func _setup_interaction(npc : NPC.NPCData):
 	name_object.text = npc.name
 	character_sprite.texture = npc.sprite
-	background.texture = npc.background_sprite
+	#background.texture = npc.background_sprite
 	pass
 	
 func _ready() -> void:
@@ -39,6 +39,8 @@ func _toggle_interact(state: bool) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _on_leave_button_pressed() -> void:
+	animator.play("close")
+	await animator.animation_finished
 	hide()
 	_toggle_interact(false)
 	
