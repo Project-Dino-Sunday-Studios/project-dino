@@ -19,6 +19,7 @@ var manual_boost_cost: float = 10
 
 func _ready() -> void:
 	Global.current_player_state = Global.PlayerState.TRAVERSE
+	$AnimationPlayer.play("swim") #change later
 
 
 func _physics_process(delta: float) -> void:
@@ -72,3 +73,4 @@ func _handle_fishing() -> void:
 		var fish_type := Fish.FishType.values().pick_random() as Fish.FishType
 		Events.catch_fish.emit(fish_type)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		

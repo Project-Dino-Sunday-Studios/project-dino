@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cunitwtuolxab"
-path.s3tc="res://.godot/imported/dodo transparent.png-3d72de2d2ed68dfe4f1ddde824646437.s3tc.ctex"
+uid="uid://bygxfpeoefocf"
+path.s3tc="res://.godot/imported/chef_render.png-a4fd2ab6e9e614a33b1345c485a89fa1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/dodo transparent.png"
-dest_files=["res://.godot/imported/dodo transparent.png-3d72de2d2ed68dfe4f1ddde824646437.s3tc.ctex"]
+source_file="res://Assets/UI/CharacterSprites/chef_render.png"
+dest_files=["res://.godot/imported/chef_render.png-a4fd2ab6e9e614a33b1345c485a89fa1.s3tc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtc5bfcj2ea3t"
-path="res://.godot/imported/fishmonger_background.png-f6333e88e93c5465700e502ecd8c5cd0.ctex"
+uid="uid://b01muawb6vunu"
+path="res://.godot/imported/dodo transparent.png-04a6fd5c4e73683e6baf715156ab5c24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/fishmonger_background.png"
-dest_files=["res://.godot/imported/fishmonger_background.png-f6333e88e93c5465700e502ecd8c5cd0.ctex"]
+source_file="res://Assets/UI/CharacterSprites/dodo transparent.png"
+dest_files=["res://.godot/imported/dodo transparent.png-04a6fd5c4e73683e6baf715156ab5c24.ctex"]
 
 [params]
 

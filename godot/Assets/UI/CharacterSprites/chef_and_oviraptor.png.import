@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctwgux780gb5s"
-path="res://.godot/imported/chef_background.png-babbff1f330bad310be1a437faf3fbcc.ctex"
+uid="uid://cdk0qodv8m0r5"
+path="res://.godot/imported/chef_and_oviraptor.png-716dfedc3a94f997891415caad7a7c84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/chef_background.png"
-dest_files=["res://.godot/imported/chef_background.png-babbff1f330bad310be1a437faf3fbcc.ctex"]
+source_file="res://Assets/UI/CharacterSprites/chef_and_oviraptor.png"
+dest_files=["res://.godot/imported/chef_and_oviraptor.png-716dfedc3a94f997891415caad7a7c84.ctex"]
 
 [params]
 

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dcbb54dqslnkf"]
+
+[ext_resource type="FontFile" uid="uid://wnys0gt0vemd" path="res://Fonts/Hogfish DEMO.otf" id="1_2bjoa"]
+[ext_resource type="Script" uid="uid://g1g4wcttxb26" path="res://UI/titlescreen.gd" id="1_8pdex"]
+[ext_resource type="PackedScene" uid="uid://ds2bygljxq7kv" path="res://Animations/Spino-swim-anim.glb" id="1_goadl"]
+[ext_resource type="Material" uid="uid://vupq4xdw4cs4" path="res://Shaders/Water/water_material.tres" id="2_2bjoa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oxtoc"]
+subdivide_width = 50
+subdivide_depth = 50
+
+[node name="Titlescreen" type="Node3D" unique_id=735572667]
+script = ExtResource("1_8pdex")
+
+[node name="TitleHolder" type="CanvasLayer" parent="." unique_id=356712704]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TitleHolder" unique_id=1873907340]
+offset_left = 51.0
+offset_top = 200.0
+offset_right = 809.0
+offset_bottom = 926.0
+
+[node name="Title" type="RichTextLabel" parent="TitleHolder/VBoxContainer" unique_id=1512883733]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_2bjoa")
+theme_override_font_sizes/normal_font_size = 131
+text = "PROJECT DINO"
+vertical_alignment = 2
+
+[node name="Buttons" type="VBoxContainer" parent="TitleHolder/VBoxContainer" unique_id=1043546980]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="TitleHolder/VBoxContainer/Buttons" unique_id=45438634]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
+
+[node name="QuitButton" type="Button" parent="TitleHolder/VBoxContainer/Buttons" unique_id=1984644537]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "QUIT
+"
+
+[node name="Spino-swim-anim" parent="." unique_id=391799308 instance=ExtResource("1_goadl")]
+transform = Transform3D(1, 0, 0, 0, 0.983328, 0.18184091, 0, -0.18184091, 0.983328, 0.044069797, -0.046769142, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=952307986]
+transform = Transform3D(4.55, 0, 0, 0, 4.55, 0, 0, 0, 4.55, 0, 0, 0)
+material_override = ExtResource("2_2bjoa")
+mesh = SubResource("PlaneMesh_oxtoc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=261571738]
+transform = Transform3D(0.32809523, 0.23557082, 0.9148005, -0.079527795, 0.9718572, -0.22174072, -0.9412911, 0, 0.33759612, 0.4142996, 0.095731646, 0.71226484)
+fov = 63.1
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1088235119]
+transform = Transform3D(0.7927799, 0.5061923, 0.3395132, -0.40724835, 0.025475325, 0.9129623, 0.45348528, -0.8620444, 0.22634229, -0.4032874, -0.09551823, -1.4548063)
+
+[connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://due1vl4q7t6xh"
-path="res://.godot/imported/dodo transparent.png-7b2611c849d97f9b92257801a6a5e72d.ctex"
+uid="uid://cdkrcyf7oqw1g"
+path="res://.godot/imported/dino textbox no namebox.png-08459216ef37745365efa621d1a59486.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI/Art/dodo transparent.png"
-dest_files=["res://.godot/imported/dodo transparent.png-7b2611c849d97f9b92257801a6a5e72d.ctex"]
+source_file="res://Assets/UI/Dialogue/dino textbox no namebox.png"
+dest_files=["res://.godot/imported/dino textbox no namebox.png-08459216ef37745365efa621d1a59486.ctex"]
 
 [params]
 

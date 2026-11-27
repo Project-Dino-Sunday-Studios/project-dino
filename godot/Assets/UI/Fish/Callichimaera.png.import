@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwsjg6w3o1lqj"
-path="res://.godot/imported/Xenacanthus.png-0d5ca0ba734d32523dc812eafd4e6e4c.ctex"
+uid="uid://chjqmtlksy6hi"
+path="res://.godot/imported/Callichimaera.png-3732b1fbd68834e59ec7e462a1328fa7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/Xenacanthus.png"
-dest_files=["res://.godot/imported/Xenacanthus.png-0d5ca0ba734d32523dc812eafd4e6e4c.ctex"]
+source_file="res://Assets/UI/Fish/Callichimaera.png"
+dest_files=["res://.godot/imported/Callichimaera.png-3732b1fbd68834e59ec7e462a1328fa7.ctex"]
 
 [params]
 

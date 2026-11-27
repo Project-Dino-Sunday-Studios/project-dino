@@ -39,27 +39,27 @@ func spawn_fish(type: Fish.FishType) -> void:
 	#Match a fish's type and assign texture and dimension
 	match type:
 		Fish.FishType.TRILOBITE:
-			fish.fish_texture = load("res://Assets/UI/Sprites/Trilobite.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/Trilobite.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0)])
 			
 		Fish.FishType.PIKAIA:
-			fish.fish_texture = load("res://Assets/UI/Sprites/pikaia.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/pikaia.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0), Vector2i(1,1)])
 			
 		Fish.FishType.CALLICHIMAERA:
-			fish.fish_texture = load("res://Assets/UI/Sprites/Callichimaera.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/Callichimaera.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0)])
 		
 		Fish.FishType.MOYTHOMASIA:
-			fish.fish_texture = load("res://Assets/UI/Sprites/moythomasia.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/moythomasia.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0)])
 			
 		Fish.FishType.XENACANTHUS:
-			fish.fish_texture = load("res://Assets/UI/Sprites/Xenacanthus.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/Xenacanthus.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0), Vector2i(2,0)])
 			
 		Fish.FishType.OSTEOLEPIS:
-			fish.fish_texture = load("res://Assets/UI/Sprites/osteolepis.png") as Texture2D
+			fish.fish_texture = load("res://Assets/UI/Fish/osteolepis.png") as Texture2D
 			fish.footprint.assign([Vector2i(0,0), Vector2i(1,0)])
 	
 	fish.inventory_grid = inventory_grid

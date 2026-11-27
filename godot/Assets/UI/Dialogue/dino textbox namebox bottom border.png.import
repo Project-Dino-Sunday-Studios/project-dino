@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlusuwt33350a"
-path="res://.godot/imported/osteolepis.png-81ef1fcc409482f378843845b06e7381.ctex"
+uid="uid://bsy0v5tywmhnr"
+path="res://.godot/imported/dino textbox namebox bottom border.png-23039085a3dc844ae38957bcd1341e5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/osteolepis.png"
-dest_files=["res://.godot/imported/osteolepis.png-81ef1fcc409482f378843845b06e7381.ctex"]
+source_file="res://Assets/UI/Dialogue/dino textbox namebox bottom border.png"
+dest_files=["res://.godot/imported/dino textbox namebox bottom border.png-23039085a3dc844ae38957bcd1341e5b.ctex"]
 
 [params]
 

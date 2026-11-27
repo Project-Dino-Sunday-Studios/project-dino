@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg3eb5eb0g5b5"
-path="res://.godot/imported/pikaia.png-0cf1ec2f38d4fedee6384c7b96c5a967.ctex"
+uid="uid://coas4wrw82pfo"
+path="res://.godot/imported/fishmonger transparent.png-79741fbb2d0a7ba61eb9938fc61aa74e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/Sprites/pikaia.png"
-dest_files=["res://.godot/imported/pikaia.png-0cf1ec2f38d4fedee6384c7b96c5a967.ctex"]
+source_file="res://Assets/UI/CharacterSprites/fishmonger transparent.png"
+dest_files=["res://.godot/imported/fishmonger transparent.png-79741fbb2d0a7ba61eb9938fc61aa74e.ctex"]
 
 [params]
 
