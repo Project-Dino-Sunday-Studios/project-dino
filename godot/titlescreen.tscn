@@ -9,8 +9,12 @@
 subdivide_width = 50
 subdivide_depth = 50
 
-[node name="Titlescreen" type="Node3D" unique_id=735572667]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oxtoc"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Titlescreen" type="Node3D" unique_id=735572667 node_paths=PackedStringArray("fade_screen")]
 script = ExtResource("1_8pdex")
+fade_screen = NodePath("CanvasLayer/Panel")
 
 [node name="TitleHolder" type="CanvasLayer" parent="." unique_id=356712704]
 
@@ -29,18 +33,19 @@ text = "PROJECT DINO"
 vertical_alignment = 2
 
 [node name="Buttons" type="VBoxContainer" parent="TitleHolder/VBoxContainer" unique_id=1043546980]
-custom_minimum_size = Vector2(0, 400)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+theme_override_constants/separation = 26
 
 [node name="PlayButton" type="Button" parent="TitleHolder/VBoxContainer/Buttons" unique_id=45438634]
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "PLAY"
 
 [node name="QuitButton" type="Button" parent="TitleHolder/VBoxContainer/Buttons" unique_id=1984644537]
-custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 32
 text = "QUIT
 "
@@ -59,6 +64,15 @@ fov = 63.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1088235119]
 transform = Transform3D(0.7927799, 0.5061923, 0.3395132, -0.40724835, 0.025475325, 0.9129623, 0.45348528, -0.8620444, 0.22634229, -0.4032874, -0.09551823, -1.4548063)
+
+[node name="FadeInOut" type="CanvasLayer" parent="." unique_id=1628537015]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=746032021]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=2142414251]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oxtoc")
 
 [connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

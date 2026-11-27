@@ -19,7 +19,7 @@ var manual_boost_cost: float = 10
 
 func _ready() -> void:
 	Global.current_player_state = Global.PlayerState.TRAVERSE
-	$AnimationPlayer.play("swim") #change later
+	#$AnimationPlayer.play("swim") #change later
 
 
 func _physics_process(delta: float) -> void:
@@ -48,10 +48,16 @@ func _physics_process(delta: float) -> void:
 				Global.current_player_state = Global.PlayerState.TRAVERSE
 	
 	
+	var msm:float = 1.0
+	if Input.is_action_pressed("move_up") || Input.is_action_pressed("move_down"):
+		msm = 1.5
+		
 	if Input.is_action_pressed("sprint"):
 		speed_multiplier = SPRINT_SPEED
+		$AnimationTree["parameters/SwimSpeed/scale"] = msm * 1.5
 	else:
 		speed_multiplier = 1
+		$AnimationTree["parameters/SwimSpeed/scale"] = 1 * msm
 
 
 func _handle_fishing() -> void:
