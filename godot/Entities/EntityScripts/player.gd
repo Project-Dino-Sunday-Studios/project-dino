@@ -8,6 +8,13 @@ var ROTATION_SPEED: float = 1.7
 var MOVEMENT_SPEED: float = 4.6
 var SPRINT_SPEED: float = 1.8
 var speed_multiplier: float = 1
+var max_stamina: float = 100
+
+# Fishing Variables
+var reel_strength: float = 2
+var boost_power: float = 8
+var boost_stamina: float = 5
+var manual_boost_cost: float = 10
 
 
 func _ready() -> void:
@@ -46,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed_multiplier = 1
 
+
 func _handle_fishing() -> void:
 	if not fishing_ray:
 		push_error("Fishing Ray is not assigned in the Player scene!")
@@ -53,7 +61,7 @@ func _handle_fishing() -> void:
 	if fishing_ray.is_colliding() and fishing_ray.get_collider() is EnvironmentFish:
 		var current_fish: EnvironmentFish = fishing_ray.get_collider()
 		if Input.is_action_just_pressed("fish"):
-			current_fish.activate_fishing(self)
+			current_fish.activate_fishing(self, max_stamina, reel_strength, boost_power, boost_stamina, manual_boost_cost)
 			Events.start_fishing.emit()
 	
 	#when finishing is complete

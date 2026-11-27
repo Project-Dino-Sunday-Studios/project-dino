@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bdnvnb1d5jnen"]
+
+[ext_resource type="Script" uid="uid://d0eumi3dt3xik" path="res://Entities/FishResources/fish_data.gd" id="1_emkvx"]
+
+[resource]
+script = ExtResource("1_emkvx")
+erraticism = 20.0
+fight_check_frequency = 0.3
+fight_power = 10.0
+min_fight_angle = 135.0
+max_fight_angle = 215.0
+metadata/_custom_type_script = "uid://d0eumi3dt3xik"

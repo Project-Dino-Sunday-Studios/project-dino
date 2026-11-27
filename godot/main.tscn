@@ -31,6 +31,7 @@ size = Vector3(6, 5, 2)
 [node name="Main" type="Node3D" unique_id=1088817240]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
 shape = SubResource("WorldBoundaryShape3D_wnsl6")
@@ -66,7 +67,6 @@ transform = Transform3D(0.8111676, 0.2939813, -0.5055511, 0.3692672, 0.41286153,
 [node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("2_0xm2m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.029289484, 0)
 collision_layer = 16
-collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
 [node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="5" unique_id=370335595 node_paths=PackedStringArray("game_camera")]

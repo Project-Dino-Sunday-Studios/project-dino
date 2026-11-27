@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://cdnc1xykcmxhd" path="res://Entities/EntityScripts/fish.gd" id="1_yxda8"]
 [ext_resource type="PackedScene" uid="uid://cbrluoqcmkaax" path="res://Entities/fish_boost.tscn" id="2_jxsqi"]
 [ext_resource type="PackedScene" uid="uid://dmp6ap3tuv1dq" path="res://Shaders/Fish/fish-object.tscn" id="3_4w0c6"]
+[ext_resource type="Resource" uid="uid://bdnvnb1d5jnen" path="res://Entities/FishResources/TestFish.tres" id="3_e7mpc"]
 [ext_resource type="Material" uid="uid://df51g7f5oxhjs" path="res://Shaders/Fish/3Dfish_mat.tres" id="3_jdfaa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
+size = Vector3(1.454373, 1.2842407, 1.3773241)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mgekb"]
 resource_name = "openPBR_shader1"
@@ -43,31 +47,68 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6r4y0")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_272bh"]
-size = Vector3(1.454373, 1.2842407, 1.3773241)
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_yddjp"]
+radius = 1.0437924
 
-[node name="Fish" type="Area3D" unique_id=1762001001]
-collision_layer = 12
+[node name="Fish" type="RigidBody3D" unique_id=1179937218 node_paths=PackedStringArray("fish_mesh", "reel_collision", "fish_boost_detector", "capture_detector", "fight_timer", "fishing_UI", "stamina_bar")]
+collision_layer = 8
 collision_mask = 64
+gravity_scale = 0.0
 script = ExtResource("1_yxda8")
+fish_mesh = NodePath("3Dfish")
+reel_collision = NodePath("ReelCollision")
 fish_boost = ExtResource("2_jxsqi")
-metadata/_custom_type_script = "uid://do3qssxsmptyx"
+fish_boost_detector = NodePath("FishBoostDetector")
+capture_detector = NodePath("CaptureDetector")
+fight_timer = NodePath("FightTimer")
+fishing_UI = NodePath("FishingUI")
+stamina_bar = NodePath("FishingUI/StaminaBar")
+fish_data = ExtResource("3_e7mpc")
+
+[node name="ReelCollision" type="CollisionShape3D" parent="." unique_id=1009876208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016775548, -0.22188163, 0.0020432472)
+shape = SubResource("BoxShape3D_272bh")
 
 [node name="3Dfish" type="MeshInstance3D" parent="." unique_id=275358364]
 transform = Transform3D(16.615, 0, 0, 0, 16.615, 0, 0, 0, 16.615, 0, 0.12660885, 0)
 material_override = ExtResource("3_jdfaa")
 mesh = SubResource("ArrayMesh_wq1h2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1009876208]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016775548, -0.22188163, 0.0020432472)
-shape = SubResource("BoxShape3D_272bh")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=82782438]
-visible = false
-mesh = SubResource("BoxMesh_wnsl6")
-
 [node name="FishObject" parent="." unique_id=1846269564 instance=ExtResource("3_4w0c6")]
 transform = Transform3D(0.575, 0, 0, 0, 0.575, 0, 0, 0, 0.575, 0, 0, 0)
 visible = false
+
+[node name="FishBoostDetector" type="Area3D" parent="." unique_id=1576035406]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishBoostDetector" unique_id=702775784]
+shape = SubResource("SphereShape3D_wnsl6")
+
+[node name="CaptureDetector" type="Area3D" parent="." unique_id=1291486493]
+process_mode = 4
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CaptureDetector" unique_id=1267004621]
+shape = SubResource("SphereShape3D_yddjp")
+
+[node name="FishingUI" type="CanvasLayer" parent="." unique_id=1817577989]
+visible = false
+
+[node name="StaminaBar" type="ProgressBar" parent="FishingUI" unique_id=764763609]
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.89
+anchor_right = 0.75
+anchor_bottom = 0.9
+offset_left = -2.0
+offset_top = -27.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+show_percentage = false
+
+[node name="FightTimer" type="Timer" parent="." unique_id=1593797888]

@@ -43,7 +43,6 @@ size = Vector3(1.2390137, 1, 0.9216919)
 [node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("1_fh8pw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.272005, -0.029289484, -4.607647)
 collision_layer = 16
-collision_mask = 0
 fishing_ray = NodePath("../Camera3D/RayCast3D")
 
 [node name="Skeleton3D" parent="Player2/Model/Spino-swim-anim/rig/global_move/joints" parent_id_path=PackedInt32Array(1369565701, 60396927) index="0" unique_id=296219281]

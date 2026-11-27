@@ -93,10 +93,10 @@ rotate_fish_cw={
 [layer_names]
 
 3d_physics/layer_1="environment"
-3d_physics/layer_3="Fish(Reeling)"
 3d_physics/layer_4="Interactable"
 3d_physics/layer_5="player"
 3d_physics/layer_7="Fish boost"
+3d_physics/layer_8="Fish Capturer"
 
 [physics]
 
