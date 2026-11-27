@@ -5,7 +5,7 @@ extends Node3D
 
 @export var detached_cam_pivot : Node3D
 @export var attached_cam_pivot : Node3D
-var active_camera : Node3D
+@export var ik_handle : SkeletonModifier3D
 
 @export var model : Node3D
 @export var game_camera: Camera3D
@@ -15,12 +15,9 @@ var rotation_difference : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	active_camera = detached_cam_pivot
 	pass 
 
 func _process(delta: float) -> void:
-	#check what rotation of camera is, then use that to calculate the rotation of the IK
-	#in comparison to the body. 
 	#matches rotation to camera
 	#var camera_rot = detached_cam_pivot.basis.get_euler()
 	var camera_rot: Vector3 = (-game_camera.basis.x)
@@ -37,3 +34,6 @@ func _process(delta: float) -> void:
 	#var target_angle = Vector3(diff.x, diff.y, diff.z)
 	
 	rotation.y = lerp_angle(rotation.y, angle_to_cam, 5.0 * delta)
+	
+	ik_handle.influence = 1 - ((PIVOT_CAP_Y - abs(rotation_degrees.y)) / PIVOT_CAP_Y)
+	#print(rotation_degrees.y)

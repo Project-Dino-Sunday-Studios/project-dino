@@ -156,7 +156,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	#Clear the request
 	pending_turns = 0
 	
-	var direction := Input.get_axis("ui_left" , "ui_right")
+	#var direction := Input.get_axis("ui_left" , "ui_right")
+	#changing input to be the same as movement rather than arrow keys
+	var direction := Input.get_axis("move_left" , "move_right")
 	state.linear_velocity = Vector2(direction * horizontal_speed, falling_speed)
 
 

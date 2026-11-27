@@ -25,7 +25,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Start fishing
 	_handle_fishing()
-	if Global.current_player_state == Global.PlayerState.FISH:
+	if Global.current_player_state == Global.PlayerState.FISH || Global.current_player_state == Global.PlayerState.ARRANGE_INVENTORY:
 		return
 	## Rotation inputs
 	if Input.is_action_pressed("move_left"):
