@@ -79,6 +79,7 @@ func _physics_process(_delta: float) -> void:
 			#Refresh the grid drawing and log the occupied cells
 			inventory_grid.queue_redraw()
 			print("Fish placed: ", occupied_cells)
+			Events.end_arranging_inventory.emit()
 		else:
 			#Log the cells that were requested for the rejected placement
 			print("Placement rejected: ", cells)

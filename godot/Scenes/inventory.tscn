@@ -83,6 +83,7 @@ position = Vector2(1411, 951)
 shape = SubResource("RectangleShape2D_qurq7")
 
 [node name="FishTest" parent="." unique_id=1764849412 node_paths=PackedStringArray("inventory_grid") instance=ExtResource("2_k5gp2")]
+visible = false
 position = Vector2(468, 843)
 inventory_grid = NodePath("../VBoxContainer/HBoxContainer/InventoryZone/InventoryGrid")
 

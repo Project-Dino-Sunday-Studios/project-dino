@@ -1,0 +1,554 @@
+[gd_scene format=3 uid="uid://bcoygfjsmf7xe"]
+
+[ext_resource type="Texture2D" uid="uid://dtc5bfcj2ea3t" path="res://Assets/UI/Backgrounds/fishmonger_background.png" id="1_b6cny"]
+[ext_resource type="Script" uid="uid://cpys68fag0jxe" path="res://UI/interact-menu.gd" id="1_t12xj"]
+[ext_resource type="Material" uid="uid://bhup4bkdr263v" path="res://Shaders/UI/characterShader.tres" id="3_o6g0w"]
+[ext_resource type="Texture2D" uid="uid://coas4wrw82pfo" path="res://Assets/UI/CharacterSprites/fishmonger transparent.png" id="3_t12xj"]
+[ext_resource type="Texture2D" uid="uid://cdkrcyf7oqw1g" path="res://Assets/UI/Dialogue/dino textbox no namebox.png" id="5_gnfoq"]
+[ext_resource type="Texture2D" uid="uid://cjgu0d1p0nobc" path="res://Assets/UI/Dialogue/dino textbox namebox no border.png" id="5_rsmka"]
+[ext_resource type="Texture2D" uid="uid://bsy0v5tywmhnr" path="res://Assets/UI/Dialogue/dino textbox namebox bottom border.png" id="6_sv6iq"]
+[ext_resource type="Texture2D" uid="uid://duy2xd1vfguv8" path="res://Assets/UI/Dialogue/dino textbox namebox top border.png" id="7_jduy3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c61y"]
+bg_color = Color(0.78431374, 0.54901963, 0.15294118, 0.8509804)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jdlq"]
+bg_color = Color(0.36862746, 0.30980393, 0.11372549, 0.83137256)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpwo1"]
+texture = ExtResource("5_gnfoq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jwfy5"]
+texture = ExtResource("5_rsmka")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psa1b"]
+bg_color = Color(0.6, 0.6, 0.6, 0.36862746)
+
+[sub_resource type="Animation" id="Animation_o6g0w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChefRender:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1317, 598.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1028, 751)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueBox/NamePanel:offset_transform_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueBox/NamePanel/Name:theme_override_colors/default_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogueBox/NamePanel/DinoTextboxNameboxBottomBorder:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogueBox/NamePanel/DinoTextboxNameboxBottomBorder2:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gnfoq"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MenuBox:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-900, 20), Vector2(40, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChefRender:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.26666674),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2400, 598.9), Vector2(1317, 598.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DialogueBox:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2000, 750.9), Vector2(1028, 751)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DialogueBox/NamePanel:offset_transform_scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2625241, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueBox/NamePanel/Name:theme_override_colors/default_color")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.26666668, 0.7462788),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), null]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DialogueBox/NamePanel/DinoTextboxNameboxBottomBorder:offset")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.4, 0.67961216),
+"transitions": PackedFloat32Array(0.6, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DialogueBox/NamePanel/DinoTextboxNameboxBottomBorder2:offset")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.4, 0.67961216),
+"transitions": PackedFloat32Array(0.6, 1),
+"update": 0,
+"values": [Vector2(0, 300), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsmka"]
+_data = {
+&"RESET": SubResource("Animation_o6g0w"),
+&"open": SubResource("Animation_gnfoq")
+}
+
+[node name="InteractionMenu" type="CanvasLayer" unique_id=2017595401 node_paths=PackedStringArray("leave_button", "name_object", "character_sprite", "background", "animator")]
+script = ExtResource("1_t12xj")
+leave_button = NodePath("LeaveButton")
+name_object = NodePath("DialogueBox/NamePanel/Name")
+character_sprite = NodePath("ChefRender")
+background = NodePath("Background")
+animator = NodePath("AnimationPlayer")
+
+[node name="Background" type="TextureRect" parent="." unique_id=972349466]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("1_b6cny")
+
+[node name="MenuBox" type="Control" parent="." unique_id=376968563]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -920.0
+offset_top = -520.0
+offset_right = -23.00354
+offset_bottom = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryBox" type="Panel" parent="MenuBox" unique_id=1297521221]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.5
+offset_top = -347.0
+offset_right = 67.5
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3c61y")
+
+[node name="GridContainer" type="GridContainer" parent="MenuBox/InventoryBox" unique_id=10062285]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -206.0
+offset_top = -258.0
+offset_right = 206.0
+offset_bottom = 258.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="Panel" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1821671901]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1710145211]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1098314375]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1271350380]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel5" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=378821652]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel6" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1016854111]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel7" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1879289759]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel8" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=383745723]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel9" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=215723602]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel10" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1570611565]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel11" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=103821956]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel12" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=848169535]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel13" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=491736225]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel14" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1243098812]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel15" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1870508240]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel16" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=11823475]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel17" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=381247580]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel18" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1868216143]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel19" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=1838052532]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel20" type="Panel" parent="MenuBox/InventoryBox/GridContainer" unique_id=365119082]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuBox/InventoryBox" unique_id=422095136]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.13100001
+offset_bottom = 0.23899078
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "INVENTORY"
+horizontal_alignment = 1
+
+[node name="SellArea" type="Panel" parent="MenuBox" unique_id=182459734]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 95.5
+offset_top = -229.0
+offset_right = 403.5
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4jdlq")
+
+[node name="GridContainer" type="GridContainer" parent="MenuBox/SellArea" unique_id=316575593]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -154.0
+offset_right = 102.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Panel" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=74465486]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=1373392352]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=1726448758]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel4" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=140100382]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel5" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=38358688]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Panel6" type="Panel" parent="MenuBox/SellArea/GridContainer" unique_id=1149145352]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MenuBox/SellArea" unique_id=1372936939]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "drag here to sell your catch"
+horizontal_alignment = 1
+
+[node name="ChefRender" type="Sprite2D" parent="." unique_id=2026043513]
+material = ExtResource("3_o6g0w")
+position = Vector2(1317, 598.99994)
+scale = Vector2(0.52, 0.52)
+texture = ExtResource("3_t12xj")
+
+[node name="DialogueBox" type="Control" parent="." unique_id=1704358972]
+custom_minimum_size = Vector2(0, 200)
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -892.0
+offset_top = 211.0
+offset_right = -41.99292
+offset_bottom = 510.99097
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="DialoguePanel" type="PanelContainer" parent="DialogueBox" unique_id=1350116156]
+layout_mode = 1
+offset_top = 8.0
+offset_right = 835.0
+offset_bottom = 289.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lpwo1")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/DialoguePanel" unique_id=893780289]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_gnfoq")
+
+[node name="Dialogue" type="RichTextLabel" parent="DialogueBox/DialoguePanel" unique_id=196102397]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "sell your fish here."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NamePanel" type="PanelContainer" parent="DialogueBox" unique_id=302452814]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.001
+anchor_top = -0.74700004
+anchor_right = 0.65300006
+anchor_bottom = -0.26700002
+offset_left = -10.850007
+offset_top = 170.09418
+offset_right = -11.05481
+offset_bottom = 170.09793
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxTexture_jwfy5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueBox/NamePanel" unique_id=973002877]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_rsmka")
+
+[node name="Name" type="RichTextLabel" parent="DialogueBox/NamePanel" unique_id=188695212]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "FISHMONGER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DinoTextboxNameboxBottomBorder" type="Sprite2D" parent="DialogueBox/NamePanel" unique_id=850960927]
+position = Vector2(314.06168, 99.874985)
+scale = Vector2(0.21140042, 0.2114004)
+texture = ExtResource("6_sv6iq")
+
+[node name="DinoTextboxNameboxBottomBorder2" type="Sprite2D" parent="DialogueBox/NamePanel" unique_id=841200383]
+position = Vector2(225.99998, 58)
+scale = Vector2(0.21503748, 0.21503747)
+texture = ExtResource("7_jduy3")
+
+[node name="Title" type="Control" parent="." unique_id=1591715507]
+custom_minimum_size = Vector2(0, 200)
+custom_maximum_size = Vector2(-1, 500)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 966.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+
+[node name="TitleBG" type="Panel" parent="Title" unique_id=338770523]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 27.0
+offset_top = 19.0
+offset_right = 27.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_psa1b")
+
+[node name="TitleText" type="RichTextLabel" parent="Title/TitleBG" unique_id=353252852]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 60
+text = "FISHMONGER'S HOUSE"
+
+[node name="LeaveButton" type="Button" parent="." unique_id=1258613075]
+anchors_preset = -1
+anchor_left = 0.067
+anchor_top = 0.88900006
+anchor_right = 0.30100003
+anchor_bottom = 1.021
+offset_left = -61.64
+offset_top = -60.120056
+offset_right = -61.56006
+offset_bottom = -60.04016
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Leave"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628927131]
+libraries/ = SubResource("AnimationLibrary_rsmka")
+
+[connection signal="pressed" from="LeaveButton" to="." method="_on_leave_button_pressed"]

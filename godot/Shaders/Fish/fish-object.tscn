@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dmp6ap3tuv1dq"]
+
+[ext_resource type="Material" uid="uid://d3n6w5asjshcu" path="res://Shaders/Fish/fishmat.tres" id="1_mcmqx"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oxtoc"]
+subdivide_width = 3
+subdivide_depth = 3
+
+[node name="FishObject" type="Node3D" unique_id=1846269564]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1618969816]
+transform = Transform3D(1, 0, 0, 0, 1.0810196, 0, 0, 0, 2.133676, 0, 0, 0)
+material_override = ExtResource("1_mcmqx")
+mesh = SubResource("PlaneMesh_oxtoc")

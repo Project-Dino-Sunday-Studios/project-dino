@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://lw6q7qkjr2mi"]
+
+[ext_resource type="PackedScene" uid="uid://q8sl2hirbqma" path="res://Entities/player.tscn" id="1_fh8pw"]
+[ext_resource type="Material" uid="uid://vupq4xdw4cs4" path="res://Shaders/Water/water_material.tres" id="2_h3i4t"]
+[ext_resource type="Script" uid="uid://c2vjqxwnw6bol" path="res://Entities/EntityScripts/main_camera.gd" id="3_adj2x"]
+[ext_resource type="PackedScene" uid="uid://brbwwlx6gend3" path="res://Crosshair.tscn" id="4_1vg5q"]
+[ext_resource type="PackedScene" uid="uid://snbg7q6yiuf0" path="res://Entities/fish.tscn" id="5_o0wup"]
+[ext_resource type="PackedScene" uid="uid://4h0jdw3pir2i" path="res://Entities/NPC/NPC.tscn" id="6_u3nf3"]
+[ext_resource type="Texture2D" uid="uid://b01muawb6vunu" path="res://Assets/UI/CharacterSprites/dodo transparent.png" id="7_1vg5q"]
+[ext_resource type="Texture2D" uid="uid://c4ikewklamnyt" path="res://Assets/UI/Backgrounds/chef_background.png" id="8_cd0ni"]
+[ext_resource type="Texture2D" uid="uid://coas4wrw82pfo" path="res://Assets/UI/CharacterSprites/fishmonger transparent.png" id="9_umyxl"]
+[ext_resource type="Texture2D" uid="uid://dtc5bfcj2ea3t" path="res://Assets/UI/Backgrounds/fishmonger_background.png" id="10_o0wup"]
+[ext_resource type="PackedScene" uid="uid://bcoygfjsmf7xe" path="res://UI/interaction-menu.tscn" id="10_rkjbj"]
+[ext_resource type="PackedScene" uid="uid://cutyhoopc3854" path="res://UI/GameplayInterface.tscn" id="11_5lt7j"]
+[ext_resource type="PackedScene" uid="uid://dds8r7b30ir8g" path="res://Utilities/pause_menu.tscn" id="12_44q20"]
+[ext_resource type="Texture2D" uid="uid://qv14lti4i3j2" path="res://Assets/map.png" id="13_h3i4t"]
+[ext_resource type="PackedScene" uid="uid://b7b2tphrnqx24" path="res://Scenes/inventory.tscn" id="14_adj2x"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_wnsl6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wnsl6"]
+size = Vector2(20, 20)
+subdivide_width = 1000
+subdivide_depth = 1000
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yddjp"]
+size = Vector3(6, 5, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wnsl6"]
+size = Vector3(6, 5, 2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wnsl6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oxtoc"]
+size = Vector3(1.2390137, 1, 0.9216919)
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_c2xpr"]
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_3c61y"]
+
+[node name="Explore" type="Node3D" unique_id=319776061]
+
+[node name="Player2" parent="." unique_id=1369565701 node_paths=PackedStringArray("fishing_ray") instance=ExtResource("1_fh8pw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.272005, -0.029289484, -4.607647)
+collision_layer = 16
+collision_mask = 0
+fishing_ray = NodePath("../Camera3D/RayCast3D")
+
+[node name="Skeleton3D" parent="Player2/Model/Spino-swim-anim/rig/global_move/joints" parent_id_path=PackedInt32Array(1369565701, 60396927) index="0" unique_id=296219281]
+bones/0/position = Vector3(-1.0329838, -9.674718, -28.610117)
+bones/0/rotation = Quaternion(-0.7062228, 0.11674778, 0.69740236, -0.03534685)
+bones/13/position = Vector3(-0.8794385, -9.030039, 0.010863086)
+bones/13/rotation = Quaternion(-0.04599701, -0.04975916, -0.74356055, 0.66522634)
+bones/14/rotation = Quaternion(0.0030533292, 0.07429427, -0.040949523, 0.9963906)
+bones/15/position = Vector3(8.034516, -2.5753982e-06, 1.0138063)
+bones/15/rotation = Quaternion(0.0073693325, -0.10569876, 0.06915982, 0.99196297)
+bones/28/rotation = Quaternion(-0.0017546326, 0.020372178, -0.020440865, 0.999582)
+bones/29/rotation = Quaternion(0.0010139844, -0.065569155, 0.0154291615, 0.9977282)
+bones/30/rotation = Quaternion(0.014839389, 0.1253004, -0.11672142, 0.9851171)
+bones/32/position = Vector3(0.6535665, -2.9118466, -8.12846e-05)
+bones/32/rotation = Quaternion(-0.70708585, 0.0054559098, -0.005455873, 0.70708567)
+bones/52/position = Vector3(-1.3787308, 8.140287, -1.9873929)
+bones/52/rotation = Quaternion(0.7325083, 0.671756, -0.07688829, 0.07914391)
+bones/53/rotation = Quaternion(0.0024338823, -0.050206285, 0.04835936, 0.99756444)
+bones/54/rotation = Quaternion(0.009383361, -0.0044296915, -0.013174586, 0.9998594)
+bones/55/rotation = Quaternion(0.0010030759, -0.13632391, 0.007289187, 0.99063706)
+bones/56/rotation = Quaternion(0.004227627, 0.13779067, -0.030374285, 0.9899866)
+
+[node name="IKHeadRotationPivot" parent="Player2/Model" parent_id_path=PackedInt32Array(1369565701, 1177248948) index="5" unique_id=370335595 node_paths=PackedStringArray("game_camera")]
+game_camera = NodePath("../../../Camera3D")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1200258929]
+transform = Transform3D(0.8111676, 0.29398134, -0.50555134, 0.3692672, 0.41286156, 0.8325786, 0.45348525, -0.8620443, 0.22634225, -6.400569, 5.9331646, 4.17482)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2072668047]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=424144209]
+shape = SubResource("WorldBoundaryShape3D_wnsl6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1110501818]
+transform = Transform3D(18.707706, 0, 0, 0, 18.707706, 0, 0, 0, 18.707706, -17.467329, -0.14103818, -36.826317)
+material_override = ExtResource("2_h3i4t")
+mesh = SubResource("PlaneMesh_wnsl6")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=251754734 node_paths=PackedStringArray("main_camera", "attached_camera_pivot", "attached_camera_location", "detached_camera_pivot", "detached_camera_location", "fishing_camera_location", "fishing_ray", "crosshair")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2962601, 4.17482)
+fov = 90.0
+script = ExtResource("3_adj2x")
+main_camera = NodePath(".")
+attached_camera_pivot = NodePath("../Player2/Model/AttachedCameraPivot")
+attached_camera_location = NodePath("../Player2/Model/AttachedCameraPivot/AttachedCameraLocation")
+detached_camera_pivot = NodePath("../Player2/DetachedCameraPivot")
+detached_camera_location = NodePath("../Player2/DetachedCameraPivot/SpringArm3D/DetachedCameraLocation")
+fishing_camera_location = NodePath("../Player2/Model/FishingCameraLocation")
+fishing_ray = NodePath("RayCast3D")
+crosshair = NodePath("Crosshair/CenterContainer")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1579200859]
+target_position = Vector3(0, 0, -20)
+collision_mask = 9
+collide_with_areas = true
+
+[node name="Crosshair" parent="Camera3D" unique_id=768079159 instance=ExtResource("4_1vg5q")]
+
+[node name="Main" type="Node3D" parent="." unique_id=1088817240]
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=1134548507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 5.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=429534653]
+shape = SubResource("BoxShape3D_yddjp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=117726257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.052017, 0, 0)
+mesh = SubResource("BoxMesh_wnsl6")
+
+[node name="Fish" parent="." unique_id=1762001001 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -0.38470894, -18.131386)
+
+[node name="Fish2" parent="." unique_id=2110615037 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.627214, -0.16970807, -16.55051)
+
+[node name="Fish3" parent="." unique_id=511261141 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.00301, -0.16970807, 4.6706905)
+
+[node name="Fish4" parent="." unique_id=384778642 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.912699, -0.16970807, -8.317902)
+
+[node name="Fish5" parent="." unique_id=166815203 instance=ExtResource("5_o0wup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.74881, -0.16970807, -3.9378033)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=381503828]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=443746452]
+shape = SubResource("SphereShape3D_wnsl6")
+
+[node name="Npc" parent="." unique_id=833796758 instance=ExtResource("6_u3nf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, 0)
+character_name = "Dodo Farmer"
+character_sprite = ExtResource("7_1vg5q")
+background_sprite = ExtResource("8_cd0ni")
+
+[node name="Npc2" parent="." unique_id=525867179 instance=ExtResource("6_u3nf3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3935995, 0, -6.3838344)
+character_name = "Fishmonger"
+character_sprite = ExtResource("9_umyxl")
+background_sprite = ExtResource("10_o0wup")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1596978901]
+transform = Transform3D(12.71, 0, 0, 0, -5.555718e-07, 12.71, 0, -12.71, -5.555718e-07, -16.481491, -5.8710136, -37.794174)
+texture = ExtResource("13_h3i4t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=459309220]
+transform = Transform3D(-19.01354, -0.23225716, 74.42569, 1.1861589, 6.6140904, 2.820002, -112.576645, 0.10891594, -12.540353, 113.06419, -0.48446846, 7.5308456)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=336043184]
+transform = Transform3D(-34.823368, -0.21441603, 71.88727, 1.186159, 6.6140904, 2.820002, -108.73062, 0.14082552, -22.99271, 74.94277, 0.7039509, -128.69852)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=652922415]
+transform = Transform3D(104.16446, -0.3662754, 34.076706, 1.2005618, 14.339021, 2.9430704, -50.032623, -0.41848704, 71.015976, 27.164776, -0.48446846, 115.11746)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=710283554]
+transform = Transform3D(-3.1122, -3.216645, 17.214184, 0.19415447, 91.60185, 0.65224844, -18.426922, 1.5084312, -2.900503, -98.30628, -0.48446846, 22.67714)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=1660689141]
+transform = Transform3D(10.050288, 13.19284, 53.921947, -4.022092, 34.1452, -20.698935, -25.350498, -0.18710856, 24.661615, -52.7876, -0.23795891, 98.92019)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=565478284]
+transform = Transform3D(-25.26329, 11.226907, 13.163899, 21.532728, 50.307568, -1.2835406, -58.831387, 13.591914, -6.1226115, -90.791306, 6.5615597, 55.43698)
+mesh = SubResource("BoxMesh_oxtoc")
+
+[node name="w" type="Node3D" parent="." unique_id=1342450588]
+transform = Transform3D(1, 0, 0, 0, 0.45599186, 0, 0, 0, 1, 61.40889, 0, 6.854866)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w" unique_id=503195747]
+transform = Transform3D(-11.260484, -0.1870812, 13.912752, 0.2923703, 6.5081787, 0.60833377, -21.50782, 0.18641701, -7.2757916, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w" unique_id=626278147]
+transform = Transform3D(10.653343, -0.27415937, 7.176233, 0.14136256, 10.078976, 0.66289365, -4.928601, -0.30351886, 15.530694, -0.73013306, 3.0044384, -0.35797405)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="w2" type="Node3D" parent="." unique_id=1490575691]
+transform = Transform3D(0.535553, 0, 0.7493497, 0, 0.65751547, 0, -0.54980505, 0, 0.7299249, 51.93167, 0, 36.389923)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w2" unique_id=913125649]
+transform = Transform3D(-11.582384, -0.37886646, 14.34527, 0.30072814, 13.180001, 0.62724555, -22.122654, 0.37752137, -7.501981, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w2" unique_id=1009563864]
+transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="w6" type="Node3D" parent="." unique_id=1871496246]
+transform = Transform3D(0.66540897, 0, -0.5979954, 0, 0.820938, 0, 0.57107073, 0, 0.69678175, -93.83939, 0, -12.899471)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w6" unique_id=1204288059]
+transform = Transform3D(-11.582384, -0.37886646, 14.34527, 0.30072814, 13.180001, 0.62724555, -22.122654, 0.37752137, -7.501981, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="w6" unique_id=359069804]
+transform = Transform3D(-5.650114, -0.30455735, 10.781485, 0.272933, 8.82109, 0.4313132, -21.947655, 0.18809974, -2.7701735, -5.0344086, -1.2056494, -11.328995)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w6" unique_id=727431114]
+transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="w3" type="Node3D" parent="." unique_id=1455308388]
+transform = Transform3D(-0.0036471486, 0, 1.0460835, 0, 0.80165863, 0, -0.7675215, 0, -0.004970908, 43.081345, -3.3682537, 53.40442)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w3" unique_id=1492779894]
+transform = Transform3D(-11.260484, -0.1870812, 13.912752, 0.2923703, 6.5081787, 0.60833377, -21.50782, 0.18641701, -7.2757916, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w3" unique_id=1380077391]
+transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="w4" type="Node3D" parent="." unique_id=1793803887]
+transform = Transform3D(1.0770566, 0, 0.21322826, 0, 1, 0, -0.2065524, 0, 1.1118671, -10.024998, 1.1676712, 53.40442)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w4" unique_id=115802402]
+transform = Transform3D(-11.260484, -0.1870812, 13.912752, 0.2923703, 6.5081787, 0.60833377, -21.50782, 0.18641701, -7.2757916, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w4" unique_id=1800963144]
+transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="w5" type="Node3D" parent="." unique_id=164406649]
+transform = Transform3D(0.63899887, 0, -0.92009485, 0, 0.41938996, 0, 0.89128846, 0, 0.65965134, -32.67181, 0.2227726, -99.73869)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="w5" unique_id=1649522735]
+transform = Transform3D(-11.260484, -0.1870812, 13.912752, 0.2923703, 6.5081787, 0.60833377, -21.50782, 0.18641701, -7.2757916, -0.40875244, -1.2056494, 1.4778023)
+mesh = SubResource("TubeTrailMesh_c2xpr")
+
+[node name="w" type="MeshInstance3D" parent="w5" unique_id=2086993214]
+transform = Transform3D(7.988337, -0.2747156, 7.568009, 0.10599976, 10.099424, 0.6990833, -3.6956782, -0.30413464, 16.378569, -1.2447643, 3.0044384, -0.5670662)
+mesh = SubResource("TubeTrailMesh_3c61y")
+
+[node name="InteractionMenu" parent="." unique_id=2017595401 instance=ExtResource("10_rkjbj")]
+
+[node name="GameplayInterface" parent="." unique_id=1194949549 instance=ExtResource("11_5lt7j")]
+
+[node name="PauseMenu" parent="." unique_id=582052061 instance=ExtResource("12_44q20")]
+
+[node name="Inventory" parent="." unique_id=1801302203 instance=ExtResource("14_adj2x")]
+
+[editable path="Player2"]
+[editable path="Camera3D/Crosshair"]
