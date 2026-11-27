@@ -27,16 +27,34 @@ func _physics_process(delta: float) -> void:
 	_handle_fishing()
 	if Global.current_player_state == Global.PlayerState.FISH || Global.current_player_state == Global.PlayerState.ARRANGE_INVENTORY:
 		return
-	## Rotation inputs
-	if Input.is_action_pressed("move_left"):
-		model.rotate(global_basis.y, ROTATION_SPEED * speed_multiplier * delta)
-	if Input.is_action_pressed("move_right"):
-		model.rotate(global_basis.y, -ROTATION_SPEED * speed_multiplier * delta)
-	## Forward/backward direction inputs
-	if Input.is_action_pressed("move_up"):
-		global_position += model.global_basis.z * MOVEMENT_SPEED * speed_multiplier * delta
-	if Input.is_action_pressed("move_down"):
-		global_position -= model.global_basis.z * MOVEMENT_SPEED * speed_multiplier * delta
+	
+	#gather inputs
+	var moveInput = Input.get_axis("move_up", "move_down")
+	var rotInput = Input.get_axis("move_right", "move_left")
+	model.rotate(global_basis.y, rotInput * ROTATION_SPEED * speed_multiplier * delta)
+	var forward = -model.transform.basis.z
+	if moveInput != 0:
+		velocity.x = forward.x * moveInput * MOVEMENT_SPEED * speed_multiplier
+		velocity.z = forward.z * moveInput * MOVEMENT_SPEED * speed_multiplier
+	else:
+		velocity.x = move_toward(velocity.x, 0, MOVEMENT_SPEED)
+		velocity.z = move_toward(velocity.z, 0, MOVEMENT_SPEED)
+	move_and_slide()
+	#$CollisionShape3D.rotate(model.rotation, model.rotation.y)
+	### Rotation inputs
+	#if Input.is_action_pressed("move_left"):
+		#model.rotate(global_basis.y, ROTATION_SPEED * speed_multiplier * delta)
+	#if Input.is_action_pressed("move_right"):
+		#model.rotate(global_basis.y, -ROTATION_SPEED * speed_multiplier * delta)
+	### Forward/backward direction inputs
+	#
+	#if Input.is_action_pressed("move_up"):
+		##velocity.z = -forw_back.x * MOVEMENT_SPEED * speed_multiplier 
+		#global_position += model.global_basis.z * MOVEMENT_SPEED * speed_multiplier * delta
+	#if Input.is_action_pressed("move_down"):
+		##velocity.z = forw_back.x * MOVEMENT_SPEED * speed_multiplier
+		#global_position -= model.global_basis.z * MOVEMENT_SPEED * speed_multiplier * delta
+	#
 	
 	# Aiming state
 	if Input.is_action_just_pressed("aim"):
