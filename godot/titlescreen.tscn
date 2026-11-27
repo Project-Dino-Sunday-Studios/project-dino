@@ -2,8 +2,31 @@
 
 [ext_resource type="FontFile" uid="uid://wnys0gt0vemd" path="res://Fonts/Hogfish DEMO.otf" id="1_2bjoa"]
 [ext_resource type="Script" uid="uid://g1g4wcttxb26" path="res://UI/titlescreen.gd" id="1_8pdex"]
+[ext_resource type="Texture2D" uid="uid://odhpau3aith" path="res://Assets/Skybox/sky_08_2k.png" id="2_hxypl"]
 [ext_resource type="Material" uid="uid://dyu5isrmk6egs" path="res://Model/Textures/spino.tres" id="3_8pdex"]
 [ext_resource type="Material" uid="uid://c180t0uno2k1g" path="res://Shaders/Water/water_for_title.tres" id="4_hxypl"]
+[ext_resource type="PackedScene" uid="uid://dt3fpsk75s1nl" path="res://Model/Environment/docks.glb" id="6_8au8e"]
+[ext_resource type="PackedScene" uid="uid://dviarmryl4ngf" path="res://Model/Environment/islands.glb" id="7_ginf8"]
+[ext_resource type="PackedScene" uid="uid://cikubewliu01h" path="res://Model/Environment/spinomountain.glb" id="8_0n2tb"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_o0614"]
+panorama = ExtResource("2_hxypl")
+
+[sub_resource type="Sky" id="Sky_44q20"]
+sky_material = SubResource("PanoramaSkyMaterial_o0614")
+
+[sub_resource type="Environment" id="Environment_jtfbd"]
+background_mode = 2
+sky = SubResource("Sky_44q20")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.008
+volumetric_fog_albedo = Color(1, 0.7733333, 0.6, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 1.05
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_8au8e"]
+
+[sub_resource type="Compositor" id="Compositor_ginf8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gy3qg"]
 resource_name = "standardSurface1"
@@ -652,6 +675,17 @@ bg_color = Color(0, 0, 0, 1)
 script = ExtResource("1_8pdex")
 fade_screen = NodePath("CanvasLayer/Panel")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=989060235]
+transform = Transform3D(0.8111676, 0.29398134, -0.5055513, 0.44678935, 0.24625309, 0.86008066, 0.3773412, -0.92354447, 0.0684048, -6.400569, 5.9331646, 4.17482)
+light_color = Color(1, 0.949, 0.82, 1)
+light_energy = 1.4
+light_angular_distance = 12.57
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2050281734]
+environment = SubResource("Environment_jtfbd")
+camera_attributes = SubResource("CameraAttributesPractical_8au8e")
+compositor = SubResource("Compositor_ginf8")
+
 [node name="TitleHolder" type="CanvasLayer" parent="." unique_id=356712704]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleHolder" unique_id=1873907340]
@@ -702,8 +736,8 @@ bones/0/name = "DEF_Waist"
 bones/0/parent = -1
 bones/0/rest = Transform3D(-2.3841856e-07, 5.960464e-08, -1.0000001, -0.3633298, -0.9316606, 3.1093283e-08, -0.9316606, 0.3633298, 2.4378136e-07, 5.04871e-29, -9.330631, -27.264418)
 bones/0/enabled = true
-bones/0/position = Vector3(-0.8454768, -9.694332, -28.605818)
-bones/0/rotation = Quaternion(-0.7058104, 0.10938287, 0.6985954, -0.042796373)
+bones/0/position = Vector3(0.73948586, -9.702602, -28.604002)
+bones/0/rotation = Quaternion(-0.6992337, 0.046994723, 0.70554346, -0.105224654)
 bones/0/scale = Vector3(1, 1, 1.0000001)
 bones/1/name = "DEF_L_Hip"
 bones/1/parent = 0
@@ -793,22 +827,22 @@ bones/13/name = "DEF_Spine_01"
 bones/13/parent = 0
 bones/13/rest = Transform3D(-0.1671325, 0.9859344, 3.1895564e-08, -0.9859344, -0.1671325, -6.970293e-08, -6.3391724e-08, -4.309656e-08, 1, -2.7120113e-06, -8.936696, 1.2221149e-13)
 bones/13/enabled = true
-bones/13/position = Vector3(-0.8794378, -9.030251, 0.008891232)
-bones/13/rotation = Quaternion(-0.03695225, -0.040100742, -0.74414706, 0.66578645)
+bones/13/position = Vector3(-0.8794353, -9.03034, -0.0077765747)
+bones/13/rotation = Quaternion(0.03534242, 0.03777709, -0.7442651, 0.6658779)
 bones/13/scale = Vector3(0.99999994, 0.99999994, 1)
 bones/14/name = "DEF_Spine_02"
 bones/14/parent = 13
 bones/14/rest = Transform3D(0.9966276, 0.082057066, -4.8894604e-09, -0.082057066, 0.9966276, -5.418273e-09, 4.4283635e-09, 5.8012146e-09, 1.0000001, 9.324671, 8.34465e-07, 6.592292e-07)
 bones/14/enabled = true
 bones/14/position = Vector3(9.324671, 8.34465e-07, 6.592292e-07)
-bones/14/rotation = Quaternion(0.0026786958, 0.06517863, -0.040975735, 0.9970284)
+bones/14/rotation = Quaternion(-0.0008193656, -0.019936878, -0.041055027, 0.99895763)
 bones/14/scale = Vector3(1, 1, 1.0000001)
 bones/15/name = "DEF_Chest"
 bones/15/parent = 14
 bones/15/rest = Transform3D(0.9994614, -0.03281361, 2.438287e-09, 0.032813605, 0.9994615, 2.2479203e-09, -2.5107358e-09, -2.1667008e-09, 1, 8.03452, -2.503395e-06, 5.3052366e-07)
 bones/15/enabled = true
-bones/15/position = Vector3(8.034518, -2.5664258e-07, 1.1661768)
-bones/15/rotation = Quaternion(0.008412453, -0.12066027, 0.06904067, 0.99025446)
+bones/15/position = Vector3(8.034517, -3.2067637e-06, 1.1029841)
+bones/15/rotation = Quaternion(0.007594194, -0.10892397, 0.06913547, 0.9916139)
 bones/15/scale = Vector3(0.99999994, 1, 1)
 bones/16/name = "DEF_L_Shoulder"
 bones/16/parent = 15
@@ -899,21 +933,21 @@ bones/28/parent = 15
 bones/28/rest = Transform3D(0.99989724, -0.014329672, 3.6499281e-09, 0.014329671, 0.9998973, 1.0340618e-09, -3.664371e-09, -9.816534e-10, 0.99999994, 9.124191, 0.8828783, 6.25059e-07)
 bones/28/enabled = true
 bones/28/position = Vector3(9.153332, -1.1500969, 5.078458e-07)
-bones/28/rotation = Quaternion(-0.0016296764, 0.025186026, -0.021554938, 0.99944913)
+bones/28/rotation = Quaternion(-0.0019505542, 0.023168374, -0.009399308, 0.99968547)
 bones/28/scale = Vector3(0.9999999, 0.99999994, 0.99999994)
 bones/29/name = "DEF_Neck_02"
 bones/29/parent = 28
 bones/29/rest = Transform3D(0.9877572, 0.15599892, -1.0677242e-08, -0.15599893, 0.98775715, -9.710595e-09, 9.031679e-09, 1.1257347e-08, 1.0000001, 8.266962, -0.30151558, 5.965693e-07)
 bones/29/enabled = true
 bones/29/position = Vector3(8.266962, -0.30151558, 5.965693e-07)
-bones/29/rotation = Quaternion(0.0007170134, -0.046365395, 0.015445806, 0.99880487)
+bones/29/rotation = Quaternion(-0.0013150192, 0.08503645, 0.015406432, 0.9962579)
 bones/29/scale = Vector3(1, 0.99999994, 1.0000001)
 bones/30/name = "DEF_Head"
 bones/30/parent = 29
 bones/30/rest = Transform3D(0.8861267, 0.46344313, -4.9008765e-08, -0.46344307, 0.8861268, -6.9240658e-09, 4.021906e-08, 2.884837e-08, 1.0000001, 6.179949, -4.172325e-06, 3.8468878e-07)
 bones/30/enabled = true
 bones/30/position = Vector3(6.179949, -4.172325e-06, 3.8468878e-07)
-bones/30/rotation = Quaternion(0.013966767, 0.11592593, -0.118833624, 0.9860247)
+bones/30/rotation = Quaternion(-0.0009778076, -0.008476053, -0.11770627, 0.9930119)
 bones/30/scale = Vector3(1, 1.0000001, 1.0000001)
 bones/31/name = "DEF_HeadEnd"
 bones/31/parent = 30
@@ -926,8 +960,8 @@ bones/32/name = "DEF_Jaw"
 bones/32/parent = 30
 bones/32/rest = Transform3D(0.9938179, -5.840318e-09, 0.11102172, -0.111021735, -1.1938916e-07, 0.9938178, 7.45058e-09, -0.99999994, -1.1929947e-07, 0.65412664, -2.9864373, 9.772856e-09)
 bones/32/enabled = true
-bones/32/position = Vector3(0.6535632, -2.9119556, -5.9652826e-05)
-bones/32/rotation = Quaternion(-0.7070982, 0.0035007424, -0.0035007047, 0.7070981)
+bones/32/position = Vector3(0.65357566, -2.9115574, -0.00013917945)
+bones/32/rotation = Quaternion(-0.7070862, 0.005407468, -0.00540742, 0.707086)
 bones/32/scale = Vector3(0.99999994, 0.99999994, 0.9999998)
 bones/33/name = "DEF_JawEnd"
 bones/33/parent = 32
@@ -1066,36 +1100,36 @@ bones/52/name = "DEF_Tail_01"
 bones/52/parent = 0
 bones/52/rest = Transform3D(0.03972697, 0.99921036, -3.9449308e-08, 0.9992106, -0.03972696, 1.071997e-07, 1.05547876e-07, -4.3676874e-08, -1, 0.4856323, 8.351294, -2.1227715e-08)
 bones/52/enabled = true
-bones/52/position = Vector3(-1.3787307, 8.178917, -1.626642)
-bones/52/rotation = Quaternion(0.7341548, 0.6733608, -0.06044389, 0.06283758)
+bones/52/position = Vector3(-1.3787297, 8.195207, 1.4227223)
+bones/52/rotation = Quaternion(0.7346337, 0.6735039, 0.058844503, -0.056949668)
 bones/52/scale = Vector3(1, 0.99999976, 1)
 bones/53/name = "DEF_Tail_02"
 bones/53/parent = 52
 bones/53/rest = Transform3D(0.9996731, 0.025566757, 5.6268394e-08, -0.025566757, 0.9996731, -4.182864e-09, -5.6356956e-08, 2.7428966e-09, 0.9999998, 11.711712, -2.3841858e-06, 1.256484e-06)
 bones/53/enabled = true
 bones/53/position = Vector3(11.711712, -2.3841858e-06, 1.256484e-06)
-bones/53/rotation = Quaternion(0.00272337, -0.056177884, 0.048343923, 0.99724597)
+bones/53/rotation = Quaternion(0.0023411089, -0.04829247, 0.048363965, 0.9976589)
 bones/53/scale = Vector3(1, 1, 0.9999998)
 bones/54/name = "DEF_Tail_03"
 bones/54/parent = 53
 bones/54/rest = Transform3D(0.9977545, -0.066976376, -4.177605e-09, 0.06697637, 0.9977546, 1.0702e-08, 3.4514431e-09, -1.0957771e-08, 1, 13.78127, 9.536743e-07, 2.2547035e-06)
 bones/54/enabled = true
 bones/54/position = Vector3(13.78127, 9.536743e-07, 2.2547035e-06)
-bones/54/rotation = Quaternion(0.009086435, -0.026650036, -0.012960259, 0.9995195)
+bones/54/rotation = Quaternion(0.0077406457, -0.12328373, -0.011951881, 0.9922693)
 bones/54/scale = Vector3(0.99999994, 1, 1)
 bones/55/name = "DEF_Tail_04"
 bones/55/parent = 54
 bones/55/rest = Transform3D(0.9972316, -0.07435799, -2.1244715e-09, 0.074357994, 0.9972315, 1.1756042e-08, 1.2444346e-09, -1.18814665e-08, 1, 13.978956, 2.026558e-06, 2.233661e-06)
 bones/55/enabled = true
 bones/55/position = Vector3(13.978956, 2.026558e-06, 2.233661e-06)
-bones/55/rotation = Quaternion(0.0010710979, -0.14556834, 0.007279508, 0.98932093)
+bones/55/rotation = Quaternion(0.00062688376, -0.08519751, 0.0073311194, 0.996337)
 bones/55/scale = Vector3(1, 0.9999999, 1)
 bones/56/name = "DEF_Tail_05"
 bones/56/parent = 55
 bones/56/rest = Transform3D(0.9999559, 0.009395235, 3.9737778e-09, -0.009395235, 0.9999559, -1.5228e-09, -3.987909e-09, 1.485398e-09, 1.0000001, 13.20977, -2.861023e-06, 2.0884734e-06)
 bones/56/enabled = true
 bones/56/position = Vector3(13.20977, -2.861023e-06, 2.0884734e-06)
-bones/56/rotation = Quaternion(0.0035762838, 0.11656148, -0.030457854, 0.99270993)
+bones/56/rotation = Quaternion(-0.0017701372, -0.057693914, -0.030615967, 0.9978632)
 bones/56/scale = Vector3(1, 1, 1.0000001)
 bones/57/name = "DEF_Tail_End"
 bones/57/parent = 56
@@ -1161,9 +1195,6 @@ mesh = SubResource("PlaneMesh_oxtoc")
 transform = Transform3D(0.33198047, -0.09877729, 0.9381003, 0.059109326, 0.9947261, 0.08382175, -0.94143254, 0.027623288, 0.33606827, 0.39622295, 0.20161483, 0.6950105)
 fov = 55.1
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1088235119]
-transform = Transform3D(0.7927799, 0.5061923, 0.3395132, -0.40724835, 0.025475325, 0.9129623, 0.45348528, -0.8620444, 0.22634229, -0.4032874, -0.09551823, -1.4548063)
-
 [node name="FadeInOut" type="CanvasLayer" parent="." unique_id=1628537015]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=746032021]
@@ -1176,19 +1207,32 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_oxtoc")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2115280593]
 transform = Transform3D(1, 0, 0, 0, 0.6824984, 0, 0, 0, 1, -6.009244, 1.0244268, 1.1885483)
+visible = false
 mesh = SubResource("CylinderMesh_oxtoc")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=657148610]
 transform = Transform3D(1, 0, 0, 0, 0.6824984, 0, 0, 0, 1, -2.774309, -0.20125067, 2.1976912)
+visible = false
 mesh = SubResource("CylinderMesh_oxtoc")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=2007791569]
 transform = Transform3D(1, 0, 0, 0, 0.6824984, 0, 0, 0, 7.7546797, -5.8941374, -0.20125055, 0.73383474)
+visible = false
 mesh = SubResource("CylinderMesh_oxtoc")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1876756931]
 transform = Transform3D(3.090317, 0, -1.7124091, 0, 1.8337991, 0, 1.3614867, 0, 3.8868442, -6.2631264, 0.73297143, -4.128081)
+visible = false
 mesh = SubResource("CylinderMesh_oxtoc")
+
+[node name="docks" parent="." unique_id=1948920101 instance=ExtResource("6_8au8e")]
+transform = Transform3D(-0.07471082, 0, -0.0065797446, 0, 0.075, 0, 0.0065797446, 0, -0.07471082, 0, -1.1366053, 0)
+
+[node name="islands" parent="." unique_id=953293137 instance=ExtResource("7_ginf8")]
+transform = Transform3D(-0.07471082, 0, -0.0065797446, 0, 0.075, 0, 0.0065797446, 0, -0.07471082, 0, -1.1366053, 0)
+
+[node name="spinomountain2" parent="." unique_id=563581006 instance=ExtResource("8_0n2tb")]
+transform = Transform3D(-0.07471082, 0, -0.0065797446, 0, 0.075, 0, 0.0065797446, 0, -0.07471082, 0, -1.1366053, 0)
 
 [connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="TitleHolder/VBoxContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
