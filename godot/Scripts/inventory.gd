@@ -10,6 +10,8 @@ const FISH_SCENE := preload("res://Scenes/fish.tscn")
 #function that plays when you successfully catch a fish
 func _catched_a_fish(fish : Fish.FishType):
 	show()
+	#Add a frame await for create correctly the UI zone
+	await RenderingServer.frame_post_draw
 	spawn_fish(fish)
 	
 func _complete_arrangement():
